@@ -1,0 +1,46 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:popupBackground">@android:color/white</item>
+    </style>
+
+    <style name="AppTheme.Graphite" parent="AppTheme">
+        <item name="colorPrimary">#101010</item>
+        <item name="colorPrimaryDark">#000000</item>
+        <item name="colorAccent">#448AFF</item>
+    </style>
+
+    <style name="AppTheme.Sage" parent="AppTheme">
+        <item name="colorPrimary">#009688</item>
+        <item name="colorPrimaryDark">#00796B</item>
+        <item name="colorAccent">#00BCD4</item>
+    </style>
+
+    <style name="AppTheme.Flamingo" parent="AppTheme">
+        <item name="colorPrimary">#F44336</item>
+        <item name="colorPrimaryDark">#D32F2F</item>
+        <item name="colorAccent">#448AFF</item>
+    </style>
+
+    <style name="AppTheme.Paper" parent="AppTheme">
+        <item name="colorPrimary">#607D8B</item>
+        <item name="colorPrimaryDark">#455A64</item>
+        <item name="colorAccent">#9E9E9E</item>
+    </style>
+
+    <style name="AppTheme.Peacock" parent="AppTheme">
+        <item name="colorPrimary">#3F51B5</item>
+        <item name="colorPrimaryDark">#303F9F</item>
+        <item name="colorAccent">#8BC34A</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>

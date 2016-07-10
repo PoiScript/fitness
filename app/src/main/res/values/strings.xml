@@ -1,0 +1,65 @@
+<resources xmlns:xliff="http://schemas.android.com/tools">
+    <string name="app_name">Beats!!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="sunday">Sun</string>
+    <string name="monday">Mon</string>
+    <string name="tuesday">Tue</string>
+    <string name="wednesday">Wed</string>
+    <string name="thursday">Thu</string>
+    <string name="friday">Fri</string>
+    <string name="saturday">Sat</string>
+    <string name="week">Week</string>
+    <string name="no_found_on_day">No record on </string>
+    <string name="no_found_on_week">No record on the week</string>
+    <string name="get_to_start">Get to start recording your heart bpm</string>
+    <string name="record_week">Week</string>
+    <string name="day_chart"></string>
+    <string name="avg_bpm">Average BPM</string>
+    <string name="pace">Pace</string>
+    <string name="no_data">No data</string>
+    <string name="connect_to_bluetooth">Please check your bluetooth Connection.</string>
+    <string name="instant_chart">Instant Chart</string>
+
+
+    <!--  MainActivity -->
+    <string name="send">Send</string>
+    <string name="not_connected">You are not connected to a device</string>
+    <string name="bt_not_enabled_leaving">Bluetooth was not enabled. Leaving Beats!!</string>
+    <string name="title_connecting">Connecting..</string>
+    <string name="title_connected_to">Connected to <xliff:g id="device_name">%1$s</xliff:g></string>
+    <string name="title_not_connected">Not Connected</string>
+
+    <!--  DeviceListActivity -->
+    <string name="scanning">Scanning for devices..</string>
+    <string name="select_device">Select a device to connect</string>
+    <string name="none_paired">No devices have been paired</string>
+    <string name="none_found">No devices found</string>
+    <string name="title_paired_devices">Paired Devices</string>
+    <string name="title_other_devices">Other Available Devices</string>
+    <string name="button_scan">Scan for devices</string>
+
+    <!-- Options Menu -->
+    <string name="connect">Connect a device</string>
+    <string name="discoverable">Make discoverable</string>
+
+    <string name="show_connected_address">Mac Address<xliff:g id="device_address">%1$s</xliff:g></string>
+    <string name="na">N/A</string>
+    <string name="bpm">BPM</string>
+
+    <string name="date">Date:</string>
+    <string name="mode01">Electrocardiogram Mode</string>
+    <string name="mode02">Oscilloscope Mode</string>
+
+    <string name="mode11">Pulse Only</string>
+    <string name="mode12">Pace Only</string>
+    <string name="mode13">Mixing</string>
+
+    <string name="cancel">Cancel</string>
+    <string name="theme_select">Theme Select</string>
+    <string name="yes">Yes</string>
+    <string name="menu_connect">connect</string>
+
+    <string name="about">About</string>
+    <string name="disconnect">Disconnect</string>
+</resources>
