@@ -28,7 +28,7 @@ import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 
-import smu_bme.beats.Database.DbData;
+import smu_bme.beats.DbData;
 import smu_bme.beats.Database.DbHelper;
 import smu_bme.beats.R;
 

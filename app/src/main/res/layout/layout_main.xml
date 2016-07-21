@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/coordinator_layout"
     android:fitsSystemWindows="true"
-    tools:context=".bluetooth.MainActivity">
+    tools:context=".MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"

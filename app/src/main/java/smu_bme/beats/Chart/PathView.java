@@ -1,23 +1,14 @@
 package smu_bme.beats.Chart;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.os.Looper;
-import android.os.Message;
-import android.os.Handler;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-import java.util.logging.LogRecord;
-
-import smu_bme.beats.bluetooth.MainActivity;
 
 /**
  * Created by bme-lab2 on 5/14/16.

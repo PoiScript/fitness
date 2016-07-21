@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:id="@+id/content"
-    tools:context=".bluetooth.MainActivity"
+    tools:context=".MainActivity"
     android:fitsSystemWindows="true"
     android:clipToPadding="false"
     tools:showIn="@layout/layout_main">
