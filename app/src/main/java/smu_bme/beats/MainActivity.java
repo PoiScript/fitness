@@ -34,6 +34,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
@@ -43,6 +44,12 @@ import android.widget.Toast;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.StringReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.regex.Matcher;
@@ -59,33 +66,35 @@ import smu_bme.beats.bluetooth.DeviceListActivity;
  * This is the layout_content Activity that displays the current chat session.
  */
 public class MainActivity extends AppCompatActivity implements OnClickListener {
-	// Debugging
-	private static final String TAG = "MainActivity";
+    // Debugging
+    private static final String TAG = "MainActivity";
 
-	public static final int MESSAGE_STATE_CHANGE = 1, MESSAGE_READ = 2, MESSAGE_WRITE = 3, MESSAGE_DEVICE_NAME = 4, MESSAGE_TOAST = 5;
-	private static final int REQUEST_CONNECT_DEVICE = 2, REQUEST_ENABLE_BT = 3;
-	public static final String DEVICE_NAME = "device_name", TOAST = "toast";
+    public static final int MESSAGE_STATE_CHANGE = 1, MESSAGE_READ = 2, MESSAGE_WRITE = 3, MESSAGE_DEVICE_NAME = 4, MESSAGE_TOAST = 5, SHOW_RESPONSE = 6;
+    private static final int REQUEST_CONNECT_DEVICE = 2, REQUEST_ENABLE_BT = 3;
+    public static final String DEVICE_NAME = "device_name", TOAST = "toast";
 
-	// Intent request codes
+    // Intent request codes
 
-	// Layout Views
-	private Intent serverIntent;
-	private FloatingActionButton fab;
-	private Snackbar snackbar;
-	private ViewGroup viewGroup;
-	private ImageButton editMode, editDate;
-	private TextView showMode, showDate, showPace, connectState, showBPM;
+    // Layout Views
+    private Intent serverIntent;
+    private FloatingActionButton fab;
+    private Snackbar snackbar;
+    private ViewGroup viewGroup;
+    private ImageButton editMode, editDate;
+    private TextView showMode, showDate, showPace, connectState, showBPM;
+    private Button requestButton;
+    private TextView requestText;
     ChartThread chartThread;
 
-	private int  mode2 = 0, year, month, day, basicSteps = 0, buttonState = 0;
-	private String mode2_name, previousBPM = "0", previousSteps, mConnectedDeviceName = null;
+    private int mode2 = 0, year, month, day, basicSteps = 0, buttonState = 0;
+    private String mode2_name, previousBPM = "0", previousSteps, mConnectedDeviceName = null;
 
-	private Calendar calendar;
-	private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-	Pattern pattern;
-	private PathView pathView;
+    private Calendar calendar;
+    private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+    Pattern pattern;
+    private PathView pathView;
 
-	// Array adapter for the conversation thread
+    // Array adapter for the conversation thread
     // private ArrayAdapter<String> mConversationArrayAdapter;
     // String buffer for outgoing messages
     private StringBuffer mOutStringBuffer;
@@ -117,14 +126,16 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         mode2_name = getString(R.string.mode11);
         connectState = (TextView) findViewById(R.id.connect_state);
         previousSteps = "0";
+        requestButton = (Button) findViewById(R.id.send_request);
+        requestButton.setOnClickListener(this);
+        requestText = (TextView) findViewById(R.id.request_text);
 //		TODO basicSteps init
         showPace = (TextView) findViewById(R.id.show_pace);
         showPace.setText(String.valueOf(basicSteps));
-        String regex = "([S]\\d+)[S][C][L][L]|([P]\\d+)[P]|([B]\\d+)[B]|([Q]\\d+)[Q]";//PSBQ
-//        String regex = "[^a]+";
-		pattern = Pattern.compile(regex);
-		showBPM = (TextView) findViewById(R.id.show_bpm);
-		pathView = (PathView) findViewById(R.id.path_view);
+        String regex = "([S]\\d+)[S][C][L][L]|([P]\\d+)[P]|([B]\\d+)[B]|([Q]\\d+)[Q]";
+        pattern = Pattern.compile(regex);
+        showBPM = (TextView) findViewById(R.id.show_bpm);
+        pathView = (PathView) findViewById(R.id.path_view);
 //        lineView = (LineView) findViewById(R.id.line_view);
 
 
@@ -137,18 +148,19 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             finish();
         }
 
-		/** Initializing LogChart */
-		chartThread = new ChartThread();
-		BarChart weekChart = (BarChart) findViewById(R.id.weekChart);
-		LineChart dayChart = (LineChart) findViewById(R.id.dayChart);
+        /** Initializing LogChart */
+        chartThread = new ChartThread();
+//		BarChart weekChart = (BarChart) findViewById(R.id.weekChart);
+//		LineChart dayChart = (LineChart) findViewById(R.id.dayChart);
 //		LineChart instantChart = (LineChart) findViewById(R.id.instant_chart);
 
-		chartThread.init(getBaseContext(), weekChart, dayChart, null);
-        try{chartThread.refreshLogChart(calendar,mode2);}
-        catch (NullPointerException e){
-            Log.d(Thread.currentThread().getName(),"init fail for null pointer exception");
+//		chartThread.init(getBaseContext(), weekChart, dayChart, null);
+        try {
+            chartThread.refreshLogChart(calendar, mode2);
+        } catch (NullPointerException e) {
+            Log.d(Thread.currentThread().getName(), "init fail for null pointer exception");
         }
-	}
+    }
 
     @Override
     public void onStart() {
@@ -210,163 +222,37 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             mChatService.stop();
     }
 
-//	private void ensureDiscoverable() {
-//		if (mBluetoothAdapter.getScanMode() != BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE) {
-//			Intent discoverableIntent = new Intent(
-//					BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
-//			discoverableIntent.putExtra(
-//					BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
-//			startActivity(discoverableIntent);
-//		}
-//	}
 
-    /**
-     * Sends a message.
-     *
-     * @param message
-     * A string of text to send.
-     */
-//	private void sendMessage(String message) {
-//		// Check that we're actually connected before trying anything
-//		if (mChatService.getState() != BluetoothService.STATE_CONNECTED) {
-//			return;
-//		}
-//		if (message.length() > 0) {
-//			// Get the message bytes and tell the BluetoothService to write
-//			byte[] send = message.getBytes();
-//			mChatService.write(send);
-//
-//			// Reset out string buffer to zero and clear the edit text field
-//			mOutStringBuffer.setLength(0);
-////			mOutEditText.setText(mOutStringBuffer);
-//		}
-//	}
-
-    // The action listener for the EditText widget, to listen for the return key
-//	private TextView.OnEditorActionListener mWriteListener = new TextView.OnEditorActionListener() {
-//		public boolean onEditorAction(TextView view, int actionId,
-//									  KeyEvent event) {
-//			// If the action is a key-up event on the return key, send the
-//			// message
-//			if (actionId == EditorInfo.IME_NULL
-//					&& event.getAction() == KeyEvent.ACTION_UP) {
-//				String message = view.getText().toString();
-//				sendMessage(message);
-//			}
-//			if (D)
-//				Log.i(TAG, "END onEditorAction");
-//			return true;
-//		}
-//	};
-
-//	private final void setStatus(int resId) {
-////		final ActionBar actionBar = getActionBar();
-////		actionBar.setSubtitle(resId);
-////        id.setText(String.valueOf(resId));
-//	}
-//
-//	private final void setStatus(CharSequence subTitle) {
-////		final ActionBar actionBar = getActionBar();
-//        name.setText(subTitle);
-////		actionBar.setSubtitle(subTitle);
-//	}
-
-	// The Handler that gets information back from the BluetoothService
-	private final Handler mHandler = new Handler() {
+    // The Handler that gets information back from the BluetoothService
+    private final Handler mHandler = new Handler() {
 
         private String num;
 
-		@Override
-		public void handleMessage(Message msg) {
-			switch (msg.what) {
-				case MESSAGE_STATE_CHANGE:
-					switch (msg.arg1) {
-						case BluetoothService.STATE_CONNECTED:
-							connectState.setText(getString(R.string.title_connected_to, mConnectedDeviceName));
-							break;
-						case BluetoothService.STATE_CONNECTING:
-							connectState.setText(R.string.title_connecting);
-							break;
-						case BluetoothService.STATE_LISTEN:
-						case BluetoothService.STATE_NONE:
-							buttonState = 1;
-							connectState.setText(getString(R.string.title_not_connected));
-							fab.setImageResource(R.drawable.ic_disconnect);
-//							snackbar.make(viewGroup, getString(R.string.title_not_connected), Snackbar.LENGTH_INDEFINITE).setDuration(Snackbar.LENGTH_INDEFINITE)
-//									.setAction(getString(R.string.connect), new OnClickListener() {
-//										@Override
-//										public void onClick(View v) {
-//											serverIntent = new Intent(MainActivity.this, DeviceListActivity.class);
-//											startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
-//											setupChat(calendar);
-//										}
-//									}).show();
-							break;
-					}
-					break;
-//			case MESSAGE_WRITE:
-//				byte[] writeBuf = (byte[]) msg.obj;
-//				// construct a string from the buffer
-//				String writeMessage = new String(writeBuf);
-//				mConversationArrayAdapter.add("Me:  " + writeMessage);
-//				break;
-			case MESSAGE_READ:
-				buttonState = 2;
-				fab.setImageResource(R.drawable.ic_sync);
-//				byte[] readBuf = (byte[]) msg.obj;
-//				 construct a string from the valid bytes in the buffer
-//				String readMessage = new String(readBuf, 0, msg.arg1);
-                    Matcher matcher = pattern.matcher(new String((byte[]) msg.obj, 0, msg.arg1));
-                    while (matcher.find()) {
-//                    Log.v("Received Raw", new String((byte[]) msg.obj,0,msg.arg1));
-                        Log.v("Received", matcher.group());
-                        num = matcher.group();
-//                    Log.d("Split num",num);
-
-//					try ()
-                        switch (matcher.group().substring(0, 1)) {
-                            case "P"://pace
-                                num = num.substring(1, num.length() - 1);
-                                if ((!num.equals(previousSteps)) && num.length() == previousSteps.length()) {
-                                    previousSteps = num;
-//                                    Log.d("DEBUGGING", "Here");
-                                    showPace.setText(String.valueOf(Integer.valueOf(previousSteps) + basicSteps));
-                                }
-                                break;
-                            case "S":
-                                num = num.substring(1, num.length() - 4);
-//                                lineView.setLinePoint(233, Integer.valueOf(num));
-                                pathView.setPoint(Integer.valueOf(num));
-//                                pathView.data.add(Integer.valueOf(num));
-//                                pathView.y = Integer.valueOf(num);
-//                                if (mode1 == 1) {
-//                                    if (Integer.valueOf(num) > 10) {
-//                                        chartThread.addInstantChart(Integer.valueOf(num));
-//                                    }
-//                                } else if (mode1 == 2) {
-//                                    if (Integer.valueOf(num) > 10) {
-//                                        chartThread.rollingInstantChart(Integer.valueOf(num));
-                                break;
-                            case "B":
-//                        case "Q":
-							{
-                                num = num.substring(1, num.length() - 1);
-                                if (!num.equals(previousBPM)) {
-                                    previousBPM = num;
-                                    showBPM.setText(num);
-                                }
-                                DbHelper dbHelper = new DbHelper(getBaseContext());
-                                SimpleDateFormat time_format = new SimpleDateFormat("HH:mm");
-                                Calendar calendar = Calendar.getInstance();
-
-                                DbData dbData = new DbData(format.format(calendar.getTime()),time_format.format(calendar.getTime()), Integer.valueOf(num));
-                                dbHelper.insertData(dbData);
-                                break;
-                        }
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case MESSAGE_STATE_CHANGE:
+                    switch (msg.arg1) {
+                        case BluetoothService.STATE_CONNECTED:
+                            connectState.setText(getString(R.string.title_connected_to, mConnectedDeviceName));
+                            break;
+                        case BluetoothService.STATE_CONNECTING:
+                            connectState.setText(R.string.title_connecting);
+                            break;
+                        case BluetoothService.STATE_LISTEN:
+                        case BluetoothService.STATE_NONE:
+                            buttonState = 1;
+                            connectState.setText(getString(R.string.title_not_connected));
+                            fab.setImageResource(R.drawable.ic_disconnect);
+                            break;
                     }
-					Log.v("Received", matcher.group());
-				}
-//				TODO Here:
+                    break;
+                case MESSAGE_READ:
+                    buttonState = 2;
+                    fab.setImageResource(R.drawable.ic_sync);
+                    byte[] readBuf = (byte[]) msg.obj;
+//				 TODO construct a string from the valid bytes in the buffer
+                    String readMessage = new String(readBuf, 0, msg.arg1);
                     break;
                 case MESSAGE_DEVICE_NAME:
                     // save the connected device's name
@@ -380,7 +266,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                             msg.getData().getString(TOAST), Toast.LENGTH_SHORT)
                             .show();
                     break;
-
+                case SHOW_RESPONSE:
+                    String response = (String) msg.obj;
+                    requestText.setText(response);
             }
         }
     };
@@ -417,22 +305,18 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         mChatService.connect(device);
     }
 
-//	@Override
-//	public boolean onCreateOptionsMenu(Menu menu) {
-//		MenuInflater inflater = getMenuInflater();
-//		inflater.inflate(R.menu.option_menu, menu);
-//		return true;
-//	}
-
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-			case R.id.fab:
-				serverIntent = new Intent(MainActivity.this, DeviceListActivity.class);
-				startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
-				setupChat(calendar);
-				break;
+            case R.id.send_request:
+                Log.d("DEBUGGING", "onClick");
+                sendRequestWithHttpURLConnection();
+                break;
+            case R.id.fab:
+                serverIntent = new Intent(MainActivity.this, DeviceListActivity.class);
+                startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
+                setupChat(calendar);
+                break;
             case R.id.edit_date:
                 DatePickerDialog dialog = new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
@@ -445,65 +329,65 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                         day = d;
                         setupChat(calendar);
                         chartThread.refreshLogChart(calendar, mode2);
-						calendar.set(Calendar.YEAR, y);
-						calendar.set(Calendar.MONTH, m);
-						calendar.set(Calendar.DAY_OF_MONTH, d);
-						year = y;
-						month = m;
-						day = d;
-						setupChat(calendar);
+                        calendar.set(Calendar.YEAR, y);
+                        calendar.set(Calendar.MONTH, m);
+                        calendar.set(Calendar.DAY_OF_MONTH, d);
+                        year = y;
+                        month = m;
+                        day = d;
+                        setupChat(calendar);
 //						TODO
-					}
-				}, year, month, day);
-				dialog.show();
-				break;
-			case R.id.edit_mode:
-				PopupMenu popupMenu = new PopupMenu(getApplicationContext(), v);
-				popupMenu.inflate(R.menu.mode_select);
-				popupMenu.getMenu().findItem(R.id.mode11).setChecked(true);
-				popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-					@Override
-					public boolean onMenuItemClick(MenuItem item) {
-						switch (item.getItemId()) {
-							case R.id.mode11:
-								mode2 = 0;
-								mode2_name = getString(R.string.mode11);
+                    }
+                }, year, month, day);
+                dialog.show();
+                break;
+            case R.id.edit_mode:
+                PopupMenu popupMenu = new PopupMenu(getApplicationContext(), v);
+                popupMenu.inflate(R.menu.mode_select);
+                popupMenu.getMenu().findItem(R.id.mode11).setChecked(true);
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.mode11:
+                                mode2 = 0;
+                                mode2_name = getString(R.string.mode11);
 //						TODO CHANGE MODE
-								chartThread.refreshLogChart(calendar, mode2);
-								break;
+                                chartThread.refreshLogChart(calendar, mode2);
+                                break;
 
-							case R.id.mode12:
-								mode2 = 1;
-								mode2_name = getString(R.string.mode12);
+                            case R.id.mode12:
+                                mode2 = 1;
+                                mode2_name = getString(R.string.mode12);
 //						TODO CHANGE MODE
-								chartThread.refreshLogChart(calendar, mode2);
-								break;
+                                chartThread.refreshLogChart(calendar, mode2);
+                                break;
 
-							case R.id.mode13:
-								mode2 = 2;
-								mode2_name = getString(R.string.mode13);
+                            case R.id.mode13:
+                                mode2 = 2;
+                                mode2_name = getString(R.string.mode13);
 //						TODO CHANGE MODE
-								chartThread.refreshLogChart(calendar, mode2);
-								break;
-						}
-						showMode.setText(mode2_name);
-						return true;
-					}
-				});
-				popupMenu.show();
-		}
-	}
+                                chartThread.refreshLogChart(calendar, mode2);
+                                break;
+                        }
+                        showMode.setText(mode2_name);
+                        return true;
+                    }
+                });
+                popupMenu.show();
+        }
+    }
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.menu, menu);
-		return true;
-	}
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		int id = item.getItemId();
-		switch (id){
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
 //			case R.id.theme_select:
 //				new AlertDialog.Builder(MainActivity.this).setTitle(getString(R.string.theme_select))
 //						.setSingleChoiceItems(arrayTheme, 0, new DialogInterface.OnClickListener() {
@@ -527,9 +411,43 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 //							}
 //						}).show();
 //				break;
-			case R.id.about:
-				break;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+            case R.id.about:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void sendRequestWithHttpURLConnection(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                HttpURLConnection connection = null;
+                try {
+                    Log.d("Debugging", "Thread");
+                    URL url = new URL("192.168.1.106:3000");
+                    connection = (HttpURLConnection) url.openConnection();
+                    connection.setRequestMethod("GET");
+                    connection.setConnectTimeout(8000);
+                    connection.setReadTimeout(8000);
+                    InputStream inputStream = connection.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+                    StringBuilder response = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null){
+                        response.append(line);
+                    }
+                    Message message = new Message();
+                    message.what = SHOW_RESPONSE;
+                    message.obj = response.toString();
+                    mHandler.sendMessage(message);
+                } catch (Exception e){
+                    e.printStackTrace();
+                } finally {
+                    if (connection != null){
+                        connection.disconnect();
+                    }
+                }
+            }
+        }).start();
+    }
 }

@@ -51,7 +51,7 @@ public class PathView extends CardiographView {
         // 重置path
         //用path模拟一个心电图样式
 //        mPath.moveTo(mWidth,mHeight/2);
-        Log.d("DEBUGGING", "data.size1"  + data.size());
+//        Log.d("DEBUGGING", "data.size1"  + data.size());
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setColor(mLineColor);
         mPaint.setStrokeWidth(5);
@@ -67,7 +67,7 @@ public class PathView extends CardiographView {
     protected void onDraw(Canvas canvas) {
         scrollBy(1, 0);
         drawPath(canvas);
-        Log.d("DEBUGGING", "data.size2"  + data.size());
+//        Log.d("DEBUGGING", "data.size2"  + data.size());
         postInvalidateDelayed(10);
     }
 
