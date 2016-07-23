@@ -43,6 +43,11 @@ import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -52,6 +57,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -309,7 +315,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.send_request:
-                Log.d("DEBUGGING", "onClick");
                 sendRequestWithHttpURLConnection();
                 break;
             case R.id.fab:
@@ -423,8 +428,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             public void run() {
                 HttpURLConnection connection = null;
                 try {
-                    Log.d("Debugging", "Thread");
-                    URL url = new URL("192.168.1.106:3000");
+                    URL url = new URL("http://poipoipo.com/data/also_dummy.json");
                     connection = (HttpURLConnection) url.openConnection();
                     connection.setRequestMethod("GET");
                     connection.setConnectTimeout(8000);
@@ -436,10 +440,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                     while ((line = reader.readLine()) != null){
                         response.append(line);
                     }
-                    Message message = new Message();
-                    message.what = SHOW_RESPONSE;
-                    message.obj = response.toString();
-                    mHandler.sendMessage(message);
+                    parseJSONWithJSONObjects(response.toString());
+//                    Message message = new Message();
+//                    message.what = SHOW_RESPONSE;
+//                    message.obj = response.toString();
+//                    mHandler.sendMessage(message);
                 } catch (Exception e){
                     e.printStackTrace();
                 } finally {
@@ -449,5 +454,26 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 }
             }
         }).start();
+    }
+
+    private void parseJSONWithJSONObjects(String jsonData) {
+//        try {
+//            JSONArray jsonArray = new JSONArray(jsonData);
+//            for (int i = 0; i < jsonArray.length(); i++){
+//                JSONObject jsonObject = jsonArray.getJSONObject(i);
+//                String id = jsonObject.getString("id");
+//                String name = jsonObject.getString("name");
+//                String version = jsonObject.getString("version");
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+        Gson gson = new Gson();
+        List<App> appList = gson.fromJson(jsonData, new TypeToken<List<App>>(){}.getType());
+        for (App app : appList){
+                Log.d("MainActivity", "id is " + app.getId());
+                Log.d("MainActivity", "name is " + app.getName());
+                Log.d("MainActivity", "version is " + app.getVersion());
+        }
     }
 }
