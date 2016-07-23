@@ -1,22 +1,19 @@
 package smu_bme.beats;
 
-/**
- * Created by gollyrui on 5/5/16.
- */
-public class DbData {
+public class Para {
     private String date;
     private String time;
     private int BPM;
     private int pace;
     private int avgBPM;
     /** For visualization and input*/
-    public DbData(String date,String time,int BPM){
+    public Para(String date, String time, int BPM){
         this.date = date;
         this.time=time;
         this.BPM = BPM;
     }
     /** For output on the very date*/
-    public DbData(String date,int avgBPM, int pace){
+    public Para(String date, int avgBPM, int pace){
         this.date=date;
         this.avgBPM=avgBPM;
         this.pace=pace;
