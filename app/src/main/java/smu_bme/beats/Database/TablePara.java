@@ -10,14 +10,14 @@ import smu_bme.beats.Data.Bpm;
 import smu_bme.beats.Data.Pace;
 import smu_bme.beats.Data.Spo2;
 
-public class DatabasePara {
+public class TablePara {
 
-    private static final String name = "Para.db";
+    private static final String name = "Data.db";
     private static final int version = 1;
     SQLiteDatabase database;
     ContentValues values = new ContentValues();
 
-    public DatabasePara(Context context) {
+    public TablePara(Context context) {
         database = new DatabaseHelper(context, name, null, version).getWritableDatabase();
     }
 
