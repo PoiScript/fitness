@@ -12,9 +12,8 @@
     <string name="week">Week</string>
     <string name="no_found_on_day">No record on </string>
     <string name="no_found_on_week">No record on the week</string>
-    <string name="get_to_start">Get to start recording your heart bpm</string>
+    <string name="get_to_start">Get to start recording your heart para</string>
     <string name="record_week">Week</string>
-    <string name="day_chart"></string>
     <string name="avg_bpm">Average BPM</string>
     <string name="pace">Pace</string>
     <string name="no_data">No data</string>
@@ -45,7 +44,7 @@
 
     <string name="show_connected_address">Mac Address<xliff:g id="device_address">%1$s</xliff:g></string>
     <string name="na">N/A</string>
-    <string name="bpm">BPM</string>
+    <string name="para">BPM</string>
 
     <string name="date">Date:</string>
     <string name="mode01">Electrocardiogram Mode</string>
@@ -62,4 +61,5 @@
 
     <string name="about">About</string>
     <string name="disconnect">Disconnect</string>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>

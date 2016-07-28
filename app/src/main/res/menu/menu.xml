@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <!--<item-->
-        <!--android:id="@+id/connect"-->
-        <!--android:orderInCategory="100"-->
-        <!--android:title="@string/connect"-->
-        <!--app:showAsAction="never" />-->
-    <!--<item-->
-        <!--android:id="@+id/theme_select"-->
-        <!--android:orderInCategory="100"-->
-        <!--android:title="@string/action_settings"-->
-        <!--app:showAsAction="never" />-->
     <item
-        android:id="@+id/about"
+        android:id="@+id/random_para"
+        android:title="Generate Random Para" />
+
+    <item
+        android:id="@+id/clear_database"
         android:orderInCategory="100"
-        android:title="@string/about"
+        android:title="Clear Database"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/query_bpm"
+        android:title="Query Table BPM" />
+
+    <item
+        android:id="@+id/query_pace"
+        android:title="Query Table Pace" />
+
+    <item
+        android:id="@+id/query_spo2"
+        android:title="Query Table Spo2" />
+
 </menu>
