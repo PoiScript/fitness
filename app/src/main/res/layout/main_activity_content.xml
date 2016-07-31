@@ -8,7 +8,7 @@
     tools:context=".MainActivity"
     android:fitsSystemWindows="true"
     android:clipToPadding="false"
-    tools:showIn="@layout/layout_main">
+    tools:showIn="@layout/main_activity">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -58,36 +58,40 @@
             android:layout_margin="@dimen/card_margin"
             android:layout_width="match_parent"
             android:layout_height="200dp">
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <Button
-                    android:id="@+id/button1"
-                    android:text="Delete Database"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:layout_below="@id/button1"
-                    android:id="@+id/rndNum"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </RelativeLayout>
-            <!--<Button-->
-            <!--android:id="@+id/button2"-->
-            <!--android:text="Send Request"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content" />-->
-            <!--<Button-->
-            <!--android:id="@+id/button3"-->
-            <!--android:text="Send Request"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content" />-->
-            <!--<Button-->
-            <!--android:id="@+id/button4"-->
-            <!--android:text="Send Request"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content" />-->
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/bpm_chart"
+                android:background="#F44336"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+            </com.github.mikephil.charting.charts.LineChart>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:clickable="true"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="3dp"
+            android:layout_margin="@dimen/card_margin"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/pace_chart"
+                android:background="#009688"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+            </com.github.mikephil.charting.charts.LineChart>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:clickable="true"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="3dp"
+            android:layout_margin="@dimen/card_margin"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/spo2_chart"
+                android:background="#3F51B5"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+            </com.github.mikephil.charting.charts.LineChart>
         </android.support.v7.widget.CardView>
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
