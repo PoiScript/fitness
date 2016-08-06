@@ -1,4 +1,4 @@
-package com.poipoipo.fitness.HttpConnect;
+package com.poipoipo.fitness.httpConnect;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

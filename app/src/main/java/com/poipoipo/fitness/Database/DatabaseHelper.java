@@ -1,4 +1,4 @@
-package com.poipoipo.fitness.Database;
+package com.poipoipo.fitness.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

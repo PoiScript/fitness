@@ -17,7 +17,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -25,6 +24,13 @@ import android.widget.Toast;
 
 import com.facebook.stetho.Stetho;
 import com.github.mikephil.charting.charts.LineChart;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -32,16 +38,16 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import com.poipoipo.fitness.Bluetooth.BluetoothService;
-import com.poipoipo.fitness.Bluetooth.DeviceListActivity;
-import com.poipoipo.fitness.Chart.LineChartUtil;
-import com.poipoipo.fitness.Data.Para;
-import com.poipoipo.fitness.Data.ParaGenerator;
-import com.poipoipo.fitness.Database.DatabasePara;
-import com.poipoipo.fitness.HttpConnect.HttpCallbackListener;
-import com.poipoipo.fitness.HttpConnect.HttpUtil;
+import com.poipoipo.fitness.bluetooth.BluetoothService;
+import com.poipoipo.fitness.bluetooth.DeviceListActivity;
+import com.poipoipo.fitness.chart.LineChartUtil;
+import com.poipoipo.fitness.data.Para;
+import com.poipoipo.fitness.data.ParaGenerator;
+import com.poipoipo.fitness.database.DatabasePara;
+import com.poipoipo.fitness.httpConnect.HttpCallbackListener;
+import com.poipoipo.fitness.httpConnect.HttpUtil;
 
-public class MainActivity extends AppCompatActivity implements OnClickListener {
+public class MainActivity extends AppCompatActivity implements OnClickListener, OnMapReadyCallback {
     private static final String TAG = "MainActivity";
 
     public static final int MESSAGE_BLUETOOTH_STATE_CHANGE = 1, MESSAGE_READ = 2, MESSAGE_DEVICE_NAME = 3, MESSAGE_TOAST = 4, REFRESH_DONE = 5, MESSAGE_SNACKBAR = 6;
@@ -52,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     private FloatingActionButton fab;
     ImageButton editDate;
     TextView connectState;
-    Button requestButton;
+    GoogleMap map;
     private int year, month, day;
     private String mConnectedDeviceName = null;
 
@@ -99,6 +105,19 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         lineChartUtil = new LineChartUtil(this, mHandler);
         lineCharts = lineChartUtil.getInstances();
 
+//        Button button = (Button) findViewById(R.id.google_maps);
+//        button.setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+
         databasePara = new DatabasePara(this);
         swipeView = (SwipeRefreshLayout) findViewById(R.id.swipe);
         swipeView.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -140,10 +159,10 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                     Toast.makeText(getApplicationContext(), "Refresh Done", Toast.LENGTH_SHORT).show();
 //                    switch (msg.arg1) {
 //                        case Para.TYPE_BPM:
-                            lineCharts.get(Para.TYPE_BPM).invalidate();
+                    lineCharts.get(Para.TYPE_BPM).invalidate();
 //                            break;
 //                        case Para.TYPE_TEMP:
-                            lineCharts.get(Para.TYPE_TEMP).invalidate();
+                    lineCharts.get(Para.TYPE_TEMP).invalidate();
 //                            break;
 //                        case Para.TYPE_SPO2:
 //                            lineCharts.get(Para.TYPE_SPO2).invalidate();
@@ -179,6 +198,26 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     }
 
     @Override
+    public void onMapReady(GoogleMap googleMap) {
+        map = googleMap;
+        LatLng sydney = new LatLng(37.45, -122.0);
+        PolylineOptions options = new PolylineOptions()
+                .add(new LatLng(37.45, -122.0))  // North of the previous point, but at the same longitude
+                .add(new LatLng(37.45, -122.2))  // Same latitude, and 30km to the west
+                .add(new LatLng(37.35, -122.2))  // Same longitude, and 16km to the south
+                .add(new LatLng(37.35, -122.0)); // Closes the polyline.
+        map.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        map.addPolyline(options);
+        map.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        map.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+                startActivity(new Intent(MainActivity.this, MapsActivity.class));
+            }
+        });
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_random:
@@ -188,19 +227,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 Toast.makeText(getApplicationContext(), "Random Data Created", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_clear:
-            databasePara.deleteAll();
-            Toast.makeText(getApplicationContext(), "Database Cleared", Toast.LENGTH_SHORT).show();
-            break;
+                databasePara.deleteAll();
+                Toast.makeText(getApplicationContext(), "Database Cleared", Toast.LENGTH_SHORT).show();
+                break;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    public void showParaDetails (List<Para> list){
-        for (Para para : list) {
-            Log.d(TAG, "showParaDetails: date = " + para.getTime());
-            Log.d(TAG, "showParaDetails: data = " + para.getData());
-        }
-        list.clear();
     }
 
     private void connectServer() {

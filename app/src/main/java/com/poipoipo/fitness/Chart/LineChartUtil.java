@@ -1,4 +1,4 @@
-package com.poipoipo.fitness.Chart;
+package com.poipoipo.fitness.chart;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -16,7 +16,7 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.poipoipo.fitness.Data.Para;
+import com.poipoipo.fitness.data.Para;
 import com.poipoipo.fitness.MainActivity;
 import com.poipoipo.fitness.R;
 

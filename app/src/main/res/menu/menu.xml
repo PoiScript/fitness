@@ -2,25 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/random_para"
-        android:title="Generate Random Para" />
+        android:id="@+id/action_random"
+        app:showAsAction="never"
+        android:title="@string/action_random" />
 
     <item
-        android:id="@+id/clear_database"
+        android:id="@+id/action_clear"
         android:orderInCategory="100"
-        android:title="Clear Database"
+        android:title="@string/action_clear"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/query_bpm"
-        android:title="Query Table BPM" />
-
-    <item
-        android:id="@+id/query_pace"
-        android:title="Query Table Pace" />
-
-    <item
-        android:id="@+id/query_spo2"
-        android:title="Query Table Spo2" />
-
+        android:id="@+id/action_location"
+        android:title="@string/action_location"
+        app:showAsAction="never"/>
 </menu>

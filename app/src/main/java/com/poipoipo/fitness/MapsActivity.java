@@ -9,10 +9,11 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private GoogleMap mMap;
+    GoogleMap mMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +40,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
+        LatLng sydney = new LatLng(37.45, -122.0);
+        PolylineOptions options = new PolylineOptions()
+                .add(new LatLng(37.45, -122.0))  // North of the previous point, but at the same longitude
+                .add(new LatLng(37.45, -122.2))  // Same latitude, and 30km to the west
+                .add(new LatLng(37.35, -122.2))  // Same longitude, and 16km to the south
+                .add(new LatLng(37.35, -122.0)); // Closes the polyline.
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        mMap.addPolyline(options);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 }

@@ -1,5 +1,5 @@
 <resources xmlns:xliff="http://schemas.android.com/tools">
-    <string name="app_name">Beats!!</string>
+    <string name="app_name">Fitness</string>
     <string name="action_settings">Settings</string>
 
     <string name="sunday">Sun</string>
@@ -46,7 +46,7 @@
     <string name="na">N/A</string>
     <string name="para">BPM</string>
 
-    <string name="date">Date:</string>
+    <string name="time">Date:</string>
     <string name="mode01">Electrocardiogram Mode</string>
     <string name="mode02">Oscilloscope Mode</string>
 
@@ -61,5 +61,9 @@
 
     <string name="about">About</string>
     <string name="disconnect">Disconnect</string>
-    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="action_random">Generate Random Data</string>
+    <string name="action_location">Generate Random Location</string>
+    <string name="action_clear">Clear Database</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

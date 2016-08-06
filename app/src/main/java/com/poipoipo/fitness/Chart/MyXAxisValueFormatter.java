@@ -1,4 +1,4 @@
-package com.poipoipo.fitness.Chart;
+package com.poipoipo.fitness.chart;
 
 import com.github.mikephil.charting.formatter.XAxisValueFormatter;
 import com.github.mikephil.charting.utils.ViewPortHandler;

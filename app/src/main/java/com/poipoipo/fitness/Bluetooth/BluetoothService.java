@@ -1,4 +1,4 @@
-package com.poipoipo.fitness.Bluetooth;
+package com.poipoipo.fitness.bluetooth;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;

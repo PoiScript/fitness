@@ -11,16 +11,17 @@
     <option name="LOGCAT_FORMAT_STRING" value="%1$s %4$c/%5$s: %6$s" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cbbfdb0-4195-47fb-9b08-8ca0f1fba28d" name="Default" comment="Test JSON parse with both JSONObjects and GSON">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Database/TablePara.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/httpConect/HttpCallbackListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/httpConect/HttpUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/menu/mode_select.xml" afterPath="" />
+    <list default="true" id="1cbbfdb0-4195-47fb-9b08-8ca0f1fba28d" name="Default" comment="LineChart Beatify">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/bluetooth/BluetoothService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/bluetooth/DeviceListActivity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/generated/mockable-android-23.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugAndroidTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
@@ -28,28 +29,40 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugUnitTestJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugUnitTestJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugUnitTestJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugUnitTestJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugUnitTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugUnitTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugUnitTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugUnitTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/mockable-android-23.jar" afterPath="$PROJECT_DIR$/build/generated/mockable-android-23.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/alex.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/alex.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/debug/res/values/google_maps_api.xml" afterPath="$PROJECT_DIR$/app/src/debug/res/values/google_maps_api.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Data/Para.java" afterPath="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Data/Para.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Database/DatabaseHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Database/DatabaseHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/HttpConnect/HttpCallbackListener.java" afterPath="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/HttpConnect/HttpCallbackListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/HttpConnect/HttpUtil.java" afterPath="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/HttpConnect/HttpUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/bluetooth/BluetoothService.java" afterPath="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/bluetooth/BluetoothService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/bluetooth/DeviceListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/bluetooth/DeviceListActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/Bluetooth/BluetoothService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/Bluetooth/BluetoothService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/Bluetooth/DeviceListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/Bluetooth/DeviceListActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/Chart/LineChartUtil.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/Chart/LineChartUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/Chart/MyMarkerView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/Chart/MyMarkerView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/Chart/MyXAxisValueFormatter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/Chart/MyXAxisValueFormatter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/Data/Location.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/Data/Location.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/Data/Para.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/Data/Para.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/Data/ParaGenerator.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/Data/ParaGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/Database/DatabaseHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/Database/DatabaseHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/Database/DatabasePara.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/Database/DatabasePara.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/HttpConnect/HttpCallbackListener.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/HttpConnect/HttpCallbackListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/HttpConnect/HttpUtil.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/HttpConnect/HttpUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/MapsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/MapsActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/device_list_activity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/device_list_activity.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/main_activity_content.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/main_activity_content.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/marker_view_bpm.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/marker_view_bpm.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/marker_view_pace.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/marker_view_pace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/marker_view_spo2.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/marker_view_spo2.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/release/res/values/google_maps_api.xml" afterPath="$PROJECT_DIR$/app/src/release/res/values/google_maps_api.xml" />
     </list>
     <ignored path="Beats.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -109,23 +122,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/MainActivity.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15030304">
-              <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.73855424">
+              <caret line="210" column="32" selection-start-line="210" selection-start-column="32" selection-end-line="210" selection-end-column="32" />
               <folding>
-                <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#6072#6545#0" expanded="true" />
-                <element signature="e#6544#6545#0" expanded="true" />
+                <element signature="e#4895#5343#0" expanded="true" />
+                <element signature="e#5342#5343#0" expanded="true" />
+                <element signature="e#9081#9297#0" expanded="true" />
+                <element signature="e#9296#9297#0" expanded="true" />
+                <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#connectServer#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#8601#8602#0" expanded="true" />
-                <element signature="e#8652#8653#0" expanded="true" />
                 <element signature="method#bluetoothStateChange#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#8837#8897#0" expanded="true" />
-                <element signature="e#9012#9037#0" expanded="true" />
                 <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#9811#9842#0" expanded="true" />
                 <element signature="method#connectDevice#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#onStart#0;class#MainActivity#0" expanded="false" />
@@ -136,61 +145,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseHelper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Database/DatabaseHelper.java">
+      <file leaf-file-name="MapsActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/MapsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
+              <caret line="42" column="30" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu.xml">
+      <file leaf-file-name="google_maps_api.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/debug/res/values/google_maps_api.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.45">
-              <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+            <state vertical-scroll-proportion="-0.775">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabasePara.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Database/DatabasePara.java">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="102" column="30" selection-start-line="102" selection-start-column="30" selection-end-line="102" selection-end-column="30" />
+            <state vertical-scroll-proportion="-6.975">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding>
-                <element signature="method#insert#0;class#DatabasePara#0" expanded="false" />
-                <element signature="method#insert#1;class#DatabasePara#0" expanded="false" />
-                <element signature="method#deleteAll#0;class#DatabasePara#0" expanded="false" />
+                <element signature="e#830#869#0" expanded="true" />
+                <element signature="e#976#1001#0" expanded="true" />
+                <element signature="e#1154#1172#0" expanded="true" />
+                <element signature="e#1798#1827#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ParaGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Data/ParaGenerator.java">
+      <file leaf-file-name="activity_maps.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#584#585#0" expanded="true" />
-                <element signature="e#620#621#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Para.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Data/Para.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+            <state vertical-scroll-proportion="-0.40789473">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -200,6 +199,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="valueResourceFile" />
       </list>
     </option>
   </component>
@@ -207,7 +207,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="2d5a19c41fe4f996a24e5fddddfb973e3fed2ede" />
+        <entry key="$PROJECT_DIR$" value="6242c92dda4a02e7a5d518d17eda012e29b8cecc" />
       </map>
     </option>
   </component>
@@ -702,39 +702,289 @@
                 <option name="name" value="preReleaseUnitTestBuild" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:animated-vector-drawable:23.3.0" />
+                <option name="description" value="Prepare com.android.support:animated-vector-drawable:24.1.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComAndroidSupportAnimatedVectorDrawable2330Library" />
+                <option name="name" value="prepareComAndroidSupportAnimatedVectorDrawable2411Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:appcompat-v7:23.3.0" />
+                <option name="description" value="Prepare com.android.support:appcompat-v7:24.1.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComAndroidSupportAppcompatV72330Library" />
+                <option name="name" value="prepareComAndroidSupportAppcompatV72411Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:cardview-v7:23.3.0" />
+                <option name="description" value="Prepare com.android.support:cardview-v7:24.1.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComAndroidSupportCardviewV72330Library" />
+                <option name="name" value="prepareComAndroidSupportCardviewV72411Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:design:23.3.0" />
+                <option name="description" value="Prepare com.android.support:design:24.1.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComAndroidSupportDesign2330Library" />
+                <option name="name" value="prepareComAndroidSupportDesign2411Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:recyclerview-v7:23.3.0" />
+                <option name="description" value="Prepare com.android.support:mediarouter-v7:23.0.0" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComAndroidSupportRecyclerviewV72330Library" />
+                <option name="name" value="prepareComAndroidSupportMediarouterV72300Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:support-v4:23.3.0" />
+                <option name="description" value="Prepare com.android.support:recyclerview-v7:24.1.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComAndroidSupportSupportV42330Library" />
+                <option name="name" value="prepareComAndroidSupportRecyclerviewV72411Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:support-vector-drawable:23.3.0" />
+                <option name="description" value="Prepare com.android.support:support-v4:24.1.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComAndroidSupportSupportVectorDrawable2330Library" />
+                <option name="name" value="prepareComAndroidSupportSupportV42411Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.android.support:support-vector-drawable:24.1.1" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComAndroidSupportSupportVectorDrawable2411Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServices940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-ads:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAds940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-ads-lite:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAdsLite940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-analytics:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAnalytics940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-analytics-impl:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAnalyticsImpl940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-appindexing:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAppindexing940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-appinvite:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAppinvite940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-auth:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAuth940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-auth-base:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAuthBase940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-base:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesBase940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-basement:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesBasement940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-cast:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesCast940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-cast-framework:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesCastFramework940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-clearcut:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesClearcut940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-contextmanager:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesContextmanager940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-drive:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesDrive940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-fitness:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesFitness940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-games:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesGames940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-gass:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesGass940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-gcm:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesGcm940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-identity:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesIdentity940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-iid:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesIid940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-location:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesLocation940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-maps:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesMaps940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-nearby:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesNearby940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-panorama:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesPanorama940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-places:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesPlaces940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-plus:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesPlus940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-safetynet:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesSafetynet940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-tagmanager:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesTagmanager940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-tagmanager-api:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesTagmanagerApi940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-tasks:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesTasks940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-vision:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesVision940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-wallet:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesWallet940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-wearable:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesWearable940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-analytics:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseAnalytics940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-analytics-impl:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseAnalyticsImpl940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-auth:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseAuth940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-auth-common:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseAuthCommon940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-auth-module:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseAuthModule940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-common:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseCommon940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-config:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseConfig940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-crash:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseCrash940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-database:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseDatabase940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-database-connection:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseDatabaseConnection940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-iid:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseIid940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-messaging:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseMessaging940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-storage:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseStorage940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-storage-common:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseStorageCommon940Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
@@ -1340,39 +1590,289 @@
                 <option name="name" value="preReleaseUnitTestBuild" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:animated-vector-drawable:23.3.0" />
+                <option name="description" value="Prepare com.android.support:animated-vector-drawable:24.1.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComAndroidSupportAnimatedVectorDrawable2330Library" />
+                <option name="name" value="prepareComAndroidSupportAnimatedVectorDrawable2411Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:appcompat-v7:23.3.0" />
+                <option name="description" value="Prepare com.android.support:appcompat-v7:24.1.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComAndroidSupportAppcompatV72330Library" />
+                <option name="name" value="prepareComAndroidSupportAppcompatV72411Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:cardview-v7:23.3.0" />
+                <option name="description" value="Prepare com.android.support:cardview-v7:24.1.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComAndroidSupportCardviewV72330Library" />
+                <option name="name" value="prepareComAndroidSupportCardviewV72411Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:design:23.3.0" />
+                <option name="description" value="Prepare com.android.support:design:24.1.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComAndroidSupportDesign2330Library" />
+                <option name="name" value="prepareComAndroidSupportDesign2411Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:recyclerview-v7:23.3.0" />
+                <option name="description" value="Prepare com.android.support:mediarouter-v7:23.0.0" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComAndroidSupportRecyclerviewV72330Library" />
+                <option name="name" value="prepareComAndroidSupportMediarouterV72300Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:support-v4:23.3.0" />
+                <option name="description" value="Prepare com.android.support:recyclerview-v7:24.1.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComAndroidSupportSupportV42330Library" />
+                <option name="name" value="prepareComAndroidSupportRecyclerviewV72411Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:support-vector-drawable:23.3.0" />
+                <option name="description" value="Prepare com.android.support:support-v4:24.1.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComAndroidSupportSupportVectorDrawable2330Library" />
+                <option name="name" value="prepareComAndroidSupportSupportV42411Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.android.support:support-vector-drawable:24.1.1" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComAndroidSupportSupportVectorDrawable2411Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServices940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-ads:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAds940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-ads-lite:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAdsLite940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-analytics:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAnalytics940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-analytics-impl:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAnalyticsImpl940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-appindexing:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAppindexing940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-appinvite:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAppinvite940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-auth:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAuth940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-auth-base:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAuthBase940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-base:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesBase940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-basement:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesBasement940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-cast:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesCast940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-cast-framework:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesCastFramework940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-clearcut:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesClearcut940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-contextmanager:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesContextmanager940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-drive:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesDrive940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-fitness:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesFitness940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-games:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesGames940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-gass:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesGass940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-gcm:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesGcm940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-identity:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesIdentity940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-iid:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesIid940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-location:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesLocation940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-maps:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesMaps940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-nearby:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesNearby940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-panorama:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesPanorama940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-places:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesPlaces940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-plus:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesPlus940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-safetynet:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesSafetynet940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-tagmanager:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesTagmanager940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-tagmanager-api:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesTagmanagerApi940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-tasks:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesTasks940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-vision:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesVision940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-wallet:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesWallet940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-wearable:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesWearable940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-analytics:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseAnalytics940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-analytics-impl:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseAnalyticsImpl940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-auth:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseAuth940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-auth-common:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseAuthCommon940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-auth-module:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseAuthModule940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-common:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseCommon940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-config:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseConfig940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-crash:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseCrash940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-database:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseDatabase940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-database-connection:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseDatabaseConnection940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-iid:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseIid940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-messaging:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseMessaging940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-storage:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseStorage940Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.firebase:firebase-storage-common:9.4.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleFirebaseFirebaseStorageCommon940Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
@@ -1557,7 +2057,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4407786884350" />
+        <entry key="$PROJECT_DIR$" value="4409572974666" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1739,17 +2239,68 @@
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/abego/treelayout/org.abego.treelayout.core/1.0.1/org.abego.treelayout.core-1.0.1.jar" />
-                            <option value="D:/AndroidSDK/extras/android/m2repository/com/android/support/appcompat-v7/23.3.0/appcompat-v7-23.3.0.aar" />
-                            <option value="D:/AndroidSDK/extras/android/m2repository/com/android/support/design/23.3.0/design-23.3.0.aar" />
-                            <option value="D:/AndroidSDK/extras/android/m2repository/com/android/support/cardview-v7/23.3.0/cardview-v7-23.3.0.aar" />
+                            <option value="D:/AndroidSDK/extras/android/m2repository/com/android/support/appcompat-v7/24.1.1/appcompat-v7-24.1.1.aar" />
+                            <option value="D:/AndroidSDK/extras/android/m2repository/com/android/support/design/24.1.1/design-24.1.1.aar" />
+                            <option value="D:/AndroidSDK/extras/android/m2repository/com/android/support/cardview-v7/24.1.1/cardview-v7-24.1.1.aar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.4/695b63d702f505b9b916e02272e3b6381bade7f/gson-2.4.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.stetho/stetho/1.3.1/2c4076b466a0eb4d6ddf5721edd35cd1adc1f317/stetho-1.3.1.jar" />
-                            <option value="D:/AndroidSDK/extras/android/m2repository/com/android/support/support-vector-drawable/23.3.0/support-vector-drawable-23.3.0.aar" />
-                            <option value="D:/AndroidSDK/extras/android/m2repository/com/android/support/animated-vector-drawable/23.3.0/animated-vector-drawable-23.3.0.aar" />
-                            <option value="D:/AndroidSDK/extras/android/m2repository/com/android/support/support-v4/23.3.0/support-v4-23.3.0.aar" />
-                            <option value="D:/AndroidSDK/extras/android/m2repository/com/android/support/recyclerview-v7/23.3.0/recyclerview-v7-23.3.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-maps/9.4.0/play-services-maps-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services/9.4.0/play-services-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/android/m2repository/com/android/support/animated-vector-drawable/24.1.1/animated-vector-drawable-24.1.1.aar" />
+                            <option value="D:/AndroidSDK/extras/android/m2repository/com/android/support/support-v4/24.1.1/support-v4-24.1.1.aar" />
+                            <option value="D:/AndroidSDK/extras/android/m2repository/com/android/support/support-vector-drawable/24.1.1/support-vector-drawable-24.1.1.aar" />
+                            <option value="D:/AndroidSDK/extras/android/m2repository/com/android/support/recyclerview-v7/24.1.1/recyclerview-v7-24.1.1.aar" />
+                            <option value="D:/AndroidSDK/extras/android/m2repository/com/android/support/support-annotations/24.1.1/support-annotations-24.1.1.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/2.0.1/516c03b21d50a644d538de0f0369c620989cd8f0/jsr305-2.0.1.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-cli/commons-cli/1.2/2bf96b7aa8b611c177d329452af1dc933e14501c/commons-cli-1.2.jar" />
-                            <option value="D:/AndroidSDK/extras/android/m2repository/com/android/support/support-annotations/23.3.0/support-annotations-23.3.0.jar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-base/9.4.0/play-services-base-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-basement/9.4.0/play-services-basement-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-ads/9.4.0/play-services-ads-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-ads-lite/9.4.0/play-services-ads-lite-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-analytics/9.4.0/play-services-analytics-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-analytics-impl/9.4.0/play-services-analytics-impl-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-appinvite/9.4.0/play-services-appinvite-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-auth/9.4.0/play-services-auth-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-auth-base/9.4.0/play-services-auth-base-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-cast-framework/9.4.0/play-services-cast-framework-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-cast/9.4.0/play-services-cast-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-clearcut/9.4.0/play-services-clearcut-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/firebase/firebase-config/9.4.0/firebase-config-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-contextmanager/9.4.0/play-services-contextmanager-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/firebase/firebase-crash/9.4.0/firebase-crash-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-drive/9.4.0/play-services-drive-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/firebase/firebase-auth/9.4.0/firebase-auth-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/firebase/firebase-auth-common/9.4.0/firebase-auth-common-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/firebase/firebase-auth-module/9.4.0/firebase-auth-module-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/firebase/firebase-database-connection/9.4.0/firebase-database-connection-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/firebase/firebase-database/9.4.0/firebase-database-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/firebase/firebase-iid/9.4.0/firebase-iid-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/firebase/firebase-messaging/9.4.0/firebase-messaging-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/firebase/firebase-storage/9.4.0/firebase-storage-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/firebase/firebase-storage-common/9.4.0/firebase-storage-common-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/firebase/firebase-common/9.4.0/firebase-common-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-fitness/9.4.0/play-services-fitness-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-games/9.4.0/play-services-games-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-gass/9.4.0/play-services-gass-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-gcm/9.4.0/play-services-gcm-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-appindexing/9.4.0/play-services-appindexing-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-identity/9.4.0/play-services-identity-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-iid/9.4.0/play-services-iid-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-location/9.4.0/play-services-location-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/firebase/firebase-analytics/9.4.0/firebase-analytics-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/firebase/firebase-analytics-impl/9.4.0/firebase-analytics-impl-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-nearby/9.4.0/play-services-nearby-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-panorama/9.4.0/play-services-panorama-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-places/9.4.0/play-services-places-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-plus/9.4.0/play-services-plus-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-safetynet/9.4.0/play-services-safetynet-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-tagmanager-api/9.4.0/play-services-tagmanager-api-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-tagmanager/9.4.0/play-services-tagmanager-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-tasks/9.4.0/play-services-tasks-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-vision/9.4.0/play-services-vision-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-wallet/9.4.0/play-services-wallet-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/google/m2repository/com/google/android/gms/play-services-wearable/9.4.0/play-services-wearable-9.4.0.aar" />
+                            <option value="D:/AndroidSDK/extras/android/m2repository/com/android/support/mediarouter-v7/23.0.0/mediarouter-v7-23.0.0.aar" />
                             <option value="$MODULE_DIR$/libs/gson-2.7.jar" />
                             <option value="$MODULE_DIR$/libs/mpandroidchartlibrary-2-2-4.jar" />
                           </list>
@@ -1837,23 +2388,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Chart/PathView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/App.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/HttpUtil.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/httpConect/HttpCallbackListener.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/httpConect/HttpUtil.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/DbData.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/HttpConect/HttpUtil.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Database/SQLiteHelper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Database/DbHelper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Database/DatabaseUtil.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Para.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/HttpConnect/HttpCallback.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/HttpConnect/HttpCallbackListener.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Bluetooth/DeviceListActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_header.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Bluetooth/BluetoothService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Bpm.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Pace.java" />
@@ -1872,13 +2410,35 @@
         <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/HttpConnect/HttpUtil.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Database/TablePara.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Data/Para.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Data/ParaGenerator.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Database/DatabaseHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Database/TableBpm.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Bluetooth/DeviceListActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Chart/MarkerView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/marker_view.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/main_activity.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/marker_view_bpm.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/marker_view_pace.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/marker_view_spo2.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Chart/MyMarkerView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Chart/MyXAxisValueFormatter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Chart/LineChartUtil.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Data/Para.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Database/DatabaseHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Data/Location.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Database/DatabasePara.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Data/ParaGenerator.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/integer.xml" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/main_activity_content.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/device_list_activity.xml" />
+        <option value="$PROJECT_DIR$/app/src/debug/res/values/google_maps_api.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/MapsActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -1920,7 +2480,7 @@
       <showMembers />
       <showModules />
       <showLibraryContents />
-      <hideEmptyPackages />
+      <hideEmptyPackages AndroidView="true" />
       <abbreviatePackageNames />
       <autoscrollToSource />
       <autoscrollFromSource />
@@ -1929,6 +2489,29 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Beats" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Beats" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Android-Unnamed" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1950,6 +2533,10 @@
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -1963,10 +2550,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="menu" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2015,7 +2598,7 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="beats" />
+              <option name="myItemId" value="fitness" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2033,77 +2616,11 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="beats" />
+              <option name="myItemId" value="fitness" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Database" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beats" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="beats" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beats" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="beats" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Chart" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Beats" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="beats" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Bluetooth" />
+              <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2119,18 +2636,14 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="device.picker.selection" value="047b9de20059a50c" />
-    <property name="SearchEverywhereHistoryKey" value="Lib&#9;ACTION&#9;EditLibraryAndDependencies" />
+    <property name="SearchEverywhereHistoryKey" value="date&#9;PSI&#9;JAVA://null#onDateSet&#10;Lib&#9;ACTION&#9;EditLibraryAndDependencies" />
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="MemoryMonitor.paused" value="true" />
     <property name="CpuMonitor.paused" value="true" />
@@ -2151,15 +2664,18 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1142" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/androidTest/java" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.poipoipo" />
       <recent name="smu_bme.beats.Data" />
       <recent name="smu_bme.beats.httpConect" />
       <recent name="smu_bme.beats" />
       <recent name="smu_bme.beats.bluetooth" />
     </key>
     <key name="android.template.packageName">
+      <recent name="com.poipoipo.fitness" />
       <recent name="smu_bme.beats" />
     </key>
     <key name="android.template.parentActivityClass">
@@ -2168,6 +2684,9 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="smu_bme.beats" />
       <recent name="smu_bme.beats.Database" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\AndroidStudioProjects\Android-Unnamed\app\src\main\res\layout" />
     </key>
   </component>
   <component name="RunManager" selected="Android Application.app">
@@ -2251,6 +2770,15 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="file://$PROJECT_DIR$" />
+      <setting name="debug" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -2397,7 +2925,7 @@
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
       <option name="DEBUGGER_TYPE" value="Java" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="true" />
       <option name="PREFERRED_AVD" value="" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
@@ -2466,7 +2994,13 @@
       <option name="project" value="LOCAL" />
       <updated>1469259887233</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="LineChart Beatify">
+      <created>1469980514376</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1469980514376</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2480,24 +3014,24 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="29" width="1938" height="1060" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283237" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283237" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5021436" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44599304" sideWeight="0.50428724" order="12" side_tool="false" content_ui="tabs" x="-9" y="14" width="1932" height="1060" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46127167" sideWeight="0.50428724" order="12" side_tool="false" content_ui="tabs" x="-9" y="14" width="1932" height="1060" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42740998" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18959537" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.49785638" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32752612" sideWeight="0.49571276" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32716763" sideWeight="0.49571276" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5021436" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16255365" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20525187" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
@@ -2510,7 +3044,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32868758" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283237" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2558,7 +3092,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Management" />
     <MESSAGE value="Test JSON parse with both JSONObjects and GSON" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test JSON parse with both JSONObjects and GSON" />
+    <MESSAGE value="LineChart Beatify" />
+    <option name="LAST_COMMIT_MESSAGE" value="LineChart Beatify" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2567,31 +3102,19 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Database/DatabasePara.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#6072#6545#0" expanded="true" />
-            <element signature="e#6544#6545#0" expanded="true" />
+            <element signature="e#4895#5343#0" expanded="true" />
+            <element signature="e#5342#5343#0" expanded="true" />
+            <element signature="e#9081#9297#0" expanded="true" />
+            <element signature="e#9296#9297#0" expanded="true" />
+            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#connectServer#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8601#8602#0" expanded="true" />
-            <element signature="e#8652#8653#0" expanded="true" />
             <element signature="method#bluetoothStateChange#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8837#8897#0" expanded="true" />
-            <element signature="e#9012#9037#0" expanded="true" />
             <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#9811#9842#0" expanded="true" />
             <element signature="method#connectDevice#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onStart#0;class#MainActivity#0" expanded="false" />
@@ -2601,31 +3124,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Database/DatabasePara.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#6072#6545#0" expanded="true" />
-            <element signature="e#6544#6545#0" expanded="true" />
+            <element signature="e#4895#5343#0" expanded="true" />
+            <element signature="e#5342#5343#0" expanded="true" />
+            <element signature="e#9081#9297#0" expanded="true" />
+            <element signature="e#9296#9297#0" expanded="true" />
+            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#connectServer#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8601#8602#0" expanded="true" />
-            <element signature="e#8652#8653#0" expanded="true" />
             <element signature="method#bluetoothStateChange#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8837#8897#0" expanded="true" />
-            <element signature="e#9012#9037#0" expanded="true" />
             <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#9811#9842#0" expanded="true" />
             <element signature="method#connectDevice#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onStart#0;class#MainActivity#0" expanded="false" />
@@ -2635,115 +3146,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#6072#6545#0" expanded="true" />
-            <element signature="e#6544#6545#0" expanded="true" />
-            <element signature="method#connectServer#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8601#8602#0" expanded="true" />
-            <element signature="e#8652#8653#0" expanded="true" />
-            <element signature="method#bluetoothStateChange#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8837#8897#0" expanded="true" />
-            <element signature="e#9012#9037#0" expanded="true" />
-            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#9811#9842#0" expanded="true" />
-            <element signature="method#connectDevice#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onStart#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#MainActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#6072#6545#0" expanded="true" />
-            <element signature="e#6544#6545#0" expanded="true" />
-            <element signature="method#connectServer#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8601#8602#0" expanded="true" />
-            <element signature="e#8652#8653#0" expanded="true" />
-            <element signature="method#bluetoothStateChange#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8837#8897#0" expanded="true" />
-            <element signature="e#9012#9037#0" expanded="true" />
-            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#9811#9842#0" expanded="true" />
-            <element signature="method#connectDevice#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onStart#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#MainActivity#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/HttpConnect/HttpUtil.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/httpConnect/HttpUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Database/DatabasePara.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/database/DatabasePara.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#DatabasePara#0;class#DatabasePara#0" expanded="false" />
+            <element signature="method#insert#0;class#DatabasePara#0" expanded="false" />
+            <element signature="method#insert#1;class#DatabasePara#0" expanded="false" />
+            <element signature="method#deleteAll#0;class#DatabasePara#0" expanded="false" />
+            <element signature="method#query#1;class#DatabasePara#0" expanded="false" />
+            <element signature="method#query#2;class#DatabasePara#0" expanded="false" />
+            <element signature="method#query#3;class#DatabasePara#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/HttpConnect/HttpCallbackListener.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/httpConnect/HttpCallbackListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Database/DatabaseHelper.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/database/DatabaseHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#6072#6545#0" expanded="true" />
-            <element signature="e#6544#6545#0" expanded="true" />
+            <element signature="e#4895#5343#0" expanded="true" />
+            <element signature="e#5342#5343#0" expanded="true" />
+            <element signature="e#9081#9297#0" expanded="true" />
+            <element signature="e#9296#9297#0" expanded="true" />
+            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#connectServer#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8601#8602#0" expanded="true" />
-            <element signature="e#8652#8653#0" expanded="true" />
             <element signature="method#bluetoothStateChange#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8837#8897#0" expanded="true" />
-            <element signature="e#9012#9037#0" expanded="true" />
             <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#9811#9842#0" expanded="true" />
             <element signature="method#connectDevice#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onStart#0;class#MainActivity#0" expanded="false" />
@@ -2753,30 +3206,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/HttpConnect/HttpUtil.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/httpConnect/HttpUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#6072#6545#0" expanded="true" />
-            <element signature="e#6544#6545#0" expanded="true" />
+            <element signature="e#4895#5343#0" expanded="true" />
+            <element signature="e#5342#5343#0" expanded="true" />
+            <element signature="e#9081#9297#0" expanded="true" />
+            <element signature="e#9296#9297#0" expanded="true" />
+            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#connectServer#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8601#8602#0" expanded="true" />
-            <element signature="e#8652#8653#0" expanded="true" />
             <element signature="method#bluetoothStateChange#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8837#8897#0" expanded="true" />
-            <element signature="e#9012#9037#0" expanded="true" />
             <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#9811#9842#0" expanded="true" />
             <element signature="method#connectDevice#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onStart#0;class#MainActivity#0" expanded="false" />
@@ -2793,41 +3242,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Chart/PathView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="17" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#6072#6545#0" expanded="true" />
-            <element signature="e#6544#6545#0" expanded="true" />
+            <element signature="e#4895#5343#0" expanded="true" />
+            <element signature="e#5342#5343#0" expanded="true" />
+            <element signature="e#9081#9297#0" expanded="true" />
+            <element signature="e#9296#9297#0" expanded="true" />
+            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#connectServer#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8601#8602#0" expanded="true" />
-            <element signature="e#8652#8653#0" expanded="true" />
             <element signature="method#bluetoothStateChange#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8837#8897#0" expanded="true" />
-            <element signature="e#9012#9037#0" expanded="true" />
             <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#9811#9842#0" expanded="true" />
             <element signature="method#connectDevice#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onStart#0;class#MainActivity#0" expanded="false" />
@@ -2844,41 +3271,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Chart/PathView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="17" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#6072#6545#0" expanded="true" />
-            <element signature="e#6544#6545#0" expanded="true" />
+            <element signature="e#4895#5343#0" expanded="true" />
+            <element signature="e#5342#5343#0" expanded="true" />
+            <element signature="e#9081#9297#0" expanded="true" />
+            <element signature="e#9296#9297#0" expanded="true" />
+            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#connectServer#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8601#8602#0" expanded="true" />
-            <element signature="e#8652#8653#0" expanded="true" />
             <element signature="method#bluetoothStateChange#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8837#8897#0" expanded="true" />
-            <element signature="e#9012#9037#0" expanded="true" />
             <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#9811#9842#0" expanded="true" />
             <element signature="method#connectDevice#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onStart#0;class#MainActivity#0" expanded="false" />
@@ -2895,68 +3300,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Chart/PathView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="17" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#6072#6545#0" expanded="true" />
-            <element signature="e#6544#6545#0" expanded="true" />
+            <element signature="e#4895#5343#0" expanded="true" />
+            <element signature="e#5342#5343#0" expanded="true" />
+            <element signature="e#9081#9297#0" expanded="true" />
+            <element signature="e#9296#9297#0" expanded="true" />
+            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#connectServer#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8601#8602#0" expanded="true" />
-            <element signature="e#8652#8653#0" expanded="true" />
             <element signature="method#bluetoothStateChange#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8837#8897#0" expanded="true" />
-            <element signature="e#9012#9037#0" expanded="true" />
             <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#9811#9842#0" expanded="true" />
             <element signature="method#connectDevice#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onStart#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onDestroy#0;class#MainActivity#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Chart/LineView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39454547">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="android-dummy://D:/AndroidStudioProjects/Android-Unnamed/app/Translations Editor">
       <provider selected="true" editor-type-id="string-resource-editor">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.116981134">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/captures/Beats_2016.07.26_00.08-1.txt">
@@ -2980,158 +3348,292 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/HttpConnect/HttpCallbackListener.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/httpConnect/HttpCallbackListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25956938">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4853229">
-          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Bluetooth/BluetoothService.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/bluetooth/BluetoothService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="15.129187">
           <caret line="424" column="12" selection-start-line="424" selection-start-column="12" selection-end-line="424" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/HttpConnect/HttpUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07416268">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_main_content.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62729657">
-          <caret line="69" column="25" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Chart/CardiographView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Chart/PathView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Bluetooth/DeviceListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1430303">
-          <caret line="59" column="25" selection-start-line="59" selection-start-column="25" selection-end-line="59" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/device_name.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2486631">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_main.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/bluetooth/DeviceListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2207792">
-          <caret line="8" column="53" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
-          <folding />
+        <state vertical-scroll-proportion="0.40898877">
+          <caret line="41" column="52" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Data/ParaGenerator.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#584#585#0" expanded="true" />
-            <element signature="e#620#621#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.7928389">
+          <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Data/Para.java">
+    <entry file="file://D:/AndroidSDK/sources/android-23/android/database/sqlite/SQLiteDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
-          <folding />
+          <caret line="1199" column="24" selection-start-line="1199" selection-start-column="24" selection-end-line="1199" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.425">
+          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/httpConnect/HttpUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/marker_view_spo2.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2055703">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/marker_view_pace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4111406">
+          <caret line="10" column="42" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/marker_view_bpm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2055703">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/chart/MyMarkerView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44819278">
+          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/chart/MyXAxisValueFormatter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0746988">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.45">
-          <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.6278481">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Database/DatabaseHelper.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/data/Para.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.1493976">
+          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/Database/DatabasePara.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/data/Location.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="102" column="30" selection-start-line="102" selection-start-column="30" selection-end-line="102" selection-end-column="30" />
+          <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/chart/LineChartUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="96" column="48" selection-start-line="96" selection-start-column="48" selection-end-line="96" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/database/DatabaseHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/database/DatabasePara.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="69" column="86" selection-start-line="69" selection-start-column="86" selection-end-line="69" selection-end-column="86" />
           <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#DatabasePara#0;class#DatabasePara#0" expanded="false" />
             <element signature="method#insert#0;class#DatabasePara#0" expanded="false" />
             <element signature="method#insert#1;class#DatabasePara#0" expanded="false" />
             <element signature="method#deleteAll#0;class#DatabasePara#0" expanded="false" />
+            <element signature="method#query#1;class#DatabasePara#0" expanded="false" />
+            <element signature="method#query#2;class#DatabasePara#0" expanded="false" />
+            <element signature="method#query#3;class#DatabasePara#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/smu_bme/beats/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main_activity.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15030304">
-          <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5144578">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/data/ParaGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.40789473">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.4.0/jars/classes.jar!/com/google/android/gms/maps/model/LatLng.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.5750637">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main_activity_content.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5344828">
+          <caret line="61" column="47" selection-start-line="61" selection-start-column="47" selection-end-line="61" selection-end-column="47" />
           <folding>
-            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#6072#6545#0" expanded="true" />
-            <element signature="e#6544#6545#0" expanded="true" />
+            <element signature="e#3973#3993#0" expanded="true" />
+            <element signature="e#4028#4048#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/device_list_activity.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04111406">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.041223403">
+          <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.975">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="e#830#869#0" expanded="true" />
+            <element signature="e#976#1001#0" expanded="true" />
+            <element signature="e#1154#1172#0" expanded="true" />
+            <element signature="e#1798#1827#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/debug/res/values/google_maps_api.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.775">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.4.0/jars/classes.jar!/com/google/android/gms/maps/GoogleMap.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.47348484">
+          <caret line="164" column="29" selection-start-line="164" selection-start-column="29" selection-end-line="164" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/MapsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="30" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/poipoipo/fitness/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.73855424">
+          <caret line="210" column="32" selection-start-line="210" selection-start-column="32" selection-end-line="210" selection-end-column="32" />
+          <folding>
+            <element signature="e#4895#5343#0" expanded="true" />
+            <element signature="e#5342#5343#0" expanded="true" />
+            <element signature="e#9081#9297#0" expanded="true" />
+            <element signature="e#9296#9297#0" expanded="true" />
+            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#connectServer#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8601#8602#0" expanded="true" />
-            <element signature="e#8652#8653#0" expanded="true" />
             <element signature="method#bluetoothStateChange#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8837#8897#0" expanded="true" />
-            <element signature="e#9012#9037#0" expanded="true" />
             <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#9811#9842#0" expanded="true" />
             <element signature="method#connectDevice#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onStart#0;class#MainActivity#0" expanded="false" />

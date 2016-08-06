@@ -1,4 +1,4 @@
-package com.poipoipo.fitness.HttpConnect;
+package com.poipoipo.fitness.httpConnect;
 
 public interface HttpCallbackListener {
 

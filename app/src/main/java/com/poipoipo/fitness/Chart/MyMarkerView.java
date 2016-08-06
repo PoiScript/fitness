@@ -1,4 +1,4 @@
-package com.poipoipo.fitness.Chart;
+package com.poipoipo.fitness.chart;
 
 import android.content.Context;
 import android.widget.TextView;

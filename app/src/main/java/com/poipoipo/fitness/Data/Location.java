@@ -1,4 +1,4 @@
-package com.poipoipo.fitness.Data;
+package com.poipoipo.fitness.data;
 
 public class Location {
 

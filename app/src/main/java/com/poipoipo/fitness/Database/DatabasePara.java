@@ -1,4 +1,4 @@
-package com.poipoipo.fitness.Database;
+package com.poipoipo.fitness.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,8 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.poipoipo.fitness.Data.Location;
-import com.poipoipo.fitness.Data.Para;
+import com.poipoipo.fitness.data.Location;
+import com.poipoipo.fitness.data.Para;
 
 public class DatabasePara {
 
