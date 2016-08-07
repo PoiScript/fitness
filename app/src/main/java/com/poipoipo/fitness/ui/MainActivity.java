@@ -1,4 +1,4 @@
-package com.poipoipo.fitness;
+package com.poipoipo.fitness.ui;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -38,6 +38,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import com.poipoipo.fitness.R;
 import com.poipoipo.fitness.bluetooth.BluetoothService;
 import com.poipoipo.fitness.bluetooth.DeviceListActivity;
 import com.poipoipo.fitness.chart.LineChartUtil;
