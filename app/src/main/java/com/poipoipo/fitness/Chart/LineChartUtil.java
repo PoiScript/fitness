@@ -3,6 +3,7 @@ package com.poipoipo.fitness.chart;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Handler;
+import android.util.Log;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
@@ -29,6 +30,7 @@ public class LineChartUtil {
     private LineChart lineChart;
     private LineDataSet lineDataSet;
     SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+    SimpleDateFormat format1 = new SimpleDateFormat("yyyy MM dd HH mm");
     final Handler handler;
     Legend legend;
     Activity activity;
@@ -48,11 +50,13 @@ public class LineChartUtil {
     }
 
     public void refresh(int type, List<Para> paraList) {
+        List<String> xVal = new ArrayList<>();
         List<Entry> entries = new ArrayList<>();
         int index = 0;
         for (Para para : paraList) {
             entries.add(new Entry(para.getData(), index++));
             xVal.add(format.format(new Date(para.getTime() * 1000L)));
+            Log.d(TAG, "refresh: para.getTime = " + para.getTime() + " calendar = " + format1.format(new Date(para.getTime() * 1000L)));
         }
         switch (type) {
             case Para.TYPE_BPM:
@@ -67,7 +71,7 @@ public class LineChartUtil {
                 break;
             case Para.TYPE_SPO2:
                 lineChart = lineCharts.get(Para.TYPE_SPO2);
-                lineDataSet = new LineDataSet(entries, "Oxygen in the Blood");
+                lineDataSet = new LineDataSet(entries, "Blood Oxygen Level");
                 lineDataSet.setHighLightColor(R.color.spo2);
         }
         lineDataSet.setAxisDependency(YAxis.AxisDependency.LEFT);
@@ -80,11 +84,11 @@ public class LineChartUtil {
 
     private void chartsSettings(List<LineChart> lineCharts) {
         lineCharts.get(Para.TYPE_BPM).setMarkerView(
-                new MyMarkerView(activity, R.layout.marker_view_bpm, lineCharts.get(Para.TYPE_BPM)));
+                new BpmMarkerView(activity, R.layout.marker_view_bpm, lineCharts.get(Para.TYPE_BPM)));
         lineCharts.get(Para.TYPE_TEMP).setMarkerView(
-                new MyMarkerView(activity, R.layout.marker_view_temp, lineCharts.get(Para.TYPE_TEMP)));
+                new TempMarkerView(activity, R.layout.marker_view_temp, lineCharts.get(Para.TYPE_TEMP)));
         lineCharts.get(Para.TYPE_SPO2).setMarkerView(
-                new MyMarkerView(activity, R.layout.marker_view_spo2, lineCharts.get(Para.TYPE_SPO2)));
+                new Spo2MarkerView(activity, R.layout.marker_view_spo2, lineCharts.get(Para.TYPE_SPO2)));
         for (LineChart lineChart : lineCharts) {
             legend = lineChart.getLegend();
             legend.setTextSize(20f);
