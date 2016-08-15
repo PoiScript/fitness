@@ -1,14 +1,12 @@
 package com.poipoipo.fitness.data;
 
 public class Location {
-
-    public static final int TYPE_LOCATION = 2;
     private int time;
     private float longitude;
     private float latitude;
 
     public void setTime(int time) {
-            this.time = time;
+        this.time = time;
     }
 
     public void setLatitude(float latitude) {

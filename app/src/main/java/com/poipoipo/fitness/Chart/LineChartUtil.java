@@ -3,6 +3,7 @@ package com.poipoipo.fitness.chart;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Handler;
+import android.util.Log;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
@@ -17,10 +18,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.poipoipo.fitness.data.Para;
-import com.poipoipo.fitness.MainActivity;
+import com.poipoipo.fitness.ui.MainActivity;
 import com.poipoipo.fitness.R;
 
 public class LineChartUtil {
+    private static final String TAG = "LineChartUtil";
     private List<LineChart> lineCharts = new ArrayList<>();
     private List<Entry> entryList = new ArrayList<>();
     private List<String> xVals = new ArrayList<>();
@@ -34,6 +36,7 @@ public class LineChartUtil {
         this.activity = activity;
         lineCharts.add(Para.TYPE_BPM, (LineChart) activity.findViewById(R.id.bpm_chart));
         lineCharts.add(Para.TYPE_TEMP, (LineChart) activity.findViewById(R.id.temp_chart));
+        lineCharts.add(Para.TYPE_SPO2, (LineChart) activity.findViewById(R.id.spo2_chart));
         this.handler = handler;
         chartsSettings(lineCharts);
     }
@@ -43,20 +46,24 @@ public class LineChartUtil {
     }
 
     public void refresh(int type, List<Para> paraList) {
+        List<Entry> entries = new ArrayList<>();
         int index = 0;
         for (Para para : paraList) {
-            entryList.add(new Entry(para.getData(), index++));
+            entries.add(new Entry(para.getData(), index++));
             xVals.add(Integer.toString(para.getTime()));
         }
         switch (type) {
             case Para.TYPE_BPM:
                 lineChart = lineCharts.get(Para.TYPE_BPM);
-                lineDataSet = new LineDataSet(entryList, "BPM");
+                lineDataSet = new LineDataSet(entries, "BPM");
                 break;
             case Para.TYPE_TEMP:
                 lineChart = lineCharts.get(Para.TYPE_TEMP);
-                lineDataSet = new LineDataSet(entryList, "Pace");
+                lineDataSet = new LineDataSet(entries, "Temperature");
                 break;
+            case Para.TYPE_SPO2:
+                lineChart = lineCharts.get(Para.TYPE_SPO2);
+                lineDataSet = new LineDataSet(entries, "SpO2");
         }
         lineDataSet.setAxisDependency(YAxis.AxisDependency.LEFT);
         ArrayList<ILineDataSet> lineDataSetList = new ArrayList<>();
@@ -64,14 +71,13 @@ public class LineChartUtil {
         lineDataSetList.add(lineDataSet);
         LineData lineData = new LineData(xVals, lineDataSetList);
         lineChart.setData(lineData);
-        handler.obtainMessage(MainActivity.REFRESH_DONE, type).sendToTarget();
     }
 
 
     private void chartsSettings(List<LineChart> lineCharts) {
         lineCharts.get(Para.TYPE_BPM).setMarkerView(new MyMarkerView(activity, R.layout.marker_view_bpm));
-        lineCharts.get(Para.TYPE_TEMP).setMarkerView(new MyMarkerView(activity, R.layout.marker_view_pace));
-//        lineCharts.get(Para.TYPE_SPO2).setMarkerView(new MyMarkerView(activity, R.layout.marker_view_spo2));
+        lineCharts.get(Para.TYPE_TEMP).setMarkerView(new MyMarkerView(activity, R.layout.marker_view_temp));
+        lineCharts.get(Para.TYPE_SPO2).setMarkerView(new MyMarkerView(activity, R.layout.marker_view_spo2));
         for (LineChart lineChart : lineCharts) {
             legend = lineChart.getLegend();
             legend.setTextSize(20f);

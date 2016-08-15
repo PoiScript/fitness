@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.UUID;
 
-import com.poipoipo.fitness.MainActivity;
+import com.poipoipo.fitness.ui.MainActivity;
 
 /**
  * This class does all the work for setting up and managing Bluetooth

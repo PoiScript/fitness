@@ -2,12 +2,14 @@ package com.poipoipo.fitness.ui;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -37,6 +40,7 @@ import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 import com.poipoipo.fitness.R;
 import com.poipoipo.fitness.bluetooth.BluetoothService;
@@ -44,24 +48,27 @@ import com.poipoipo.fitness.bluetooth.DeviceListActivity;
 import com.poipoipo.fitness.chart.LineChartUtil;
 import com.poipoipo.fitness.data.Para;
 import com.poipoipo.fitness.data.ParaGenerator;
-import com.poipoipo.fitness.database.DatabasePara;
+import com.poipoipo.fitness.data.Timestamp;
+import com.poipoipo.fitness.database.DatabaseHelper;
 import com.poipoipo.fitness.httpConnect.HttpCallbackListener;
 import com.poipoipo.fitness.httpConnect.HttpUtil;
 
-public class MainActivity extends AppCompatActivity implements OnClickListener, OnMapReadyCallback {
+public class MainActivity extends AppCompatActivity
+        implements OnClickListener, OnMapReadyCallback {
     private static final String TAG = "MainActivity";
 
-    public static final int MESSAGE_BLUETOOTH_STATE_CHANGE = 1, MESSAGE_READ = 2, MESSAGE_DEVICE_NAME = 3, MESSAGE_TOAST = 4, REFRESH_DONE = 5, MESSAGE_SNACKBAR = 6;
+    public static final int MESSAGE_BLUETOOTH_STATE_CHANGE = 1, MESSAGE_READ = 2, MESSAGE_DEVICE_NAME = 3, MESSAGE_TOAST = 4, START_REFRESH= 5, REFRESH_DONE = 6;
     private static final int REQUEST_CONNECT_DEVICE = 2, REQUEST_ENABLE_BT = 3;
+    private static final int DATE_PICKER = 1;
     public static final String DEVICE_NAME = "device_name", TOAST = "toast", SNACKBAR = "snackbar";
 
     Intent serverIntent;
     private FloatingActionButton fab;
-    ImageButton editDate;
+    Button editDate;
     TextView connectState;
     GoogleMap map;
-    private int year, month, day;
     private String mConnectedDeviceName = null;
+    private Timestamp timestamp;
 
     private Calendar calendar;
 
@@ -72,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     private BluetoothAdapter mBluetoothAdapter = null;
     // Member object for the chat services
     private BluetoothService mChatService = null;
-    private DatabasePara databasePara;
+    private DatabaseHelper databaseHelper;
     private SwipeRefreshLayout swipeView;
     List<Para> list = new ArrayList<>();
     List<LineChart> lineCharts = new ArrayList<>();
@@ -96,38 +103,30 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         setSupportActionBar(toolbar);
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(this);
-        editDate = (ImageButton) findViewById(R.id.edit_date);
+        editDate = (Button) findViewById(R.id.edit_date);
         editDate.setOnClickListener(this);
-        calendar = Calendar.getInstance();
-        year = calendar.get(Calendar.YEAR);
-        month = calendar.get(Calendar.MONTH);
-        day = calendar.get(Calendar.DAY_OF_MONTH);
+        calendar = Calendar.getInstance(TimeZone.getDefault());
+        timestamp = new Timestamp(calendar);
+        updateDate();
+        ImageButton prevDate = (ImageButton) findViewById(R.id.prev_date);
+        prevDate.setOnClickListener(this);
+        ImageButton nextDate = (ImageButton) findViewById(R.id.next_date);
+        nextDate.setOnClickListener(this);
 
         lineChartUtil = new LineChartUtil(this, mHandler);
         lineCharts = lineChartUtil.getInstances();
-
-//        Button button = (Button) findViewById(R.id.google_maps);
-//        button.setOnClickListener(new OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-//                startActivity(intent);
-//            }
-//        });
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        databasePara = new DatabasePara(this);
+        databaseHelper = new DatabaseHelper(this);
         swipeView = (SwipeRefreshLayout) findViewById(R.id.swipe);
         swipeView.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 swipeView.setRefreshing(true);
-                lineChartUtil.refresh(Para.TYPE_BPM, databasePara.query(Para.TYPE_BPM));
-//                lineChartUtil.refresh(Para.TYPE_SPO2, databasePara.query(Para.TYPE_SPO2));
-                lineChartUtil.refresh(Para.TYPE_TEMP, databasePara.query(Para.TYPE_TEMP));
+                mHandler.obtainMessage(START_REFRESH).sendToTarget();
             }
         });
     }
@@ -155,20 +154,18 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
                 case MESSAGE_TOAST:
                     Toast.makeText(getApplicationContext(), msg.getData().getString(TOAST), Toast.LENGTH_SHORT).show();
                     break;
+                case START_REFRESH:
+                    lineChartUtil.refresh(Para.TYPE_BPM, databaseHelper.queryPara(Para.TYPE_BPM, timestamp.getTodayTimestamp()));
+                    lineChartUtil.refresh(Para.TYPE_SPO2, databaseHelper.queryPara(Para.TYPE_SPO2, timestamp.getTodayTimestamp()));
+                    lineChartUtil.refresh(Para.TYPE_TEMP, databaseHelper.queryPara(Para.TYPE_TEMP, timestamp.getTodayTimestamp()));
+                    mHandler.obtainMessage(MainActivity.REFRESH_DONE).sendToTarget();
+                    break;
                 case REFRESH_DONE:
                     swipeView.setRefreshing(false);
                     Toast.makeText(getApplicationContext(), "Refresh Done", Toast.LENGTH_SHORT).show();
-//                    switch (msg.arg1) {
-//                        case Para.TYPE_BPM:
                     lineCharts.get(Para.TYPE_BPM).invalidate();
-//                            break;
-//                        case Para.TYPE_TEMP:
                     lineCharts.get(Para.TYPE_TEMP).invalidate();
-//                            break;
-//                        case Para.TYPE_SPO2:
-//                            lineCharts.get(Para.TYPE_SPO2).invalidate();
-//                            break;
-//                    }
+                    lineCharts.get(Para.TYPE_SPO2).invalidate();
             }
         }
     };
@@ -182,20 +179,40 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
                 startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
                 break;
             case R.id.edit_date:
-                DatePickerDialog dialog = new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int y, int m, int d) {
-                        calendar.set(Calendar.YEAR, y);
-                        calendar.set(Calendar.MONTH, m);
-                        calendar.set(Calendar.DAY_OF_MONTH, d);
-                        year = y;
-                        month = m;
-                        day = d;
-                    }
-                }, year, month, day);
-                dialog.show();
+                showDialog(DATE_PICKER);
+                break;
+            case R.id.prev_date:
+                calendar.add(Calendar.DATE, -1);
+                updateDate();
+                break;
+            case R.id.next_date:
+                calendar.add(Calendar.DATE, 1);
+                updateDate();
                 break;
         }
+    }
+
+    private void updateDate() {
+        editDate.setText(new StringBuilder().append(calendar.get(Calendar.YEAR)).append("/")
+                .append(calendar.get(Calendar.MONTH) + 1).append("/").append(calendar.get(Calendar.DAY_OF_MONTH)));
+    }
+
+    private DatePickerDialog.OnDateSetListener onDateSetListener =
+            new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                    calendar.set(i, i1, i2);
+                    updateDate();
+                }
+            };
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
+            case DATE_PICKER:
+                return new DatePickerDialog(this, onDateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        }
+        return null;
     }
 
     @Override
@@ -222,13 +239,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_random:
-                ParaGenerator generator = new ParaGenerator(10);
-                list = generator.create();
-                databasePara.insert(list);
+                databaseHelper.insertPara(new ParaGenerator().generate(10));
                 Toast.makeText(getApplicationContext(), "Random Data Created", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_clear:
-                databasePara.deleteAll();
+                databaseHelper.deleteAll();
                 Toast.makeText(getApplicationContext(), "Database Cleared", Toast.LENGTH_SHORT).show();
                 break;
         }
@@ -241,7 +256,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
             public void onFinish(String response) {
                 List<Para> list = new Gson().fromJson(response, new TypeToken<List<Para>>() {
                 }.getType());
-                databasePara.insert(list);
+                databaseHelper.insertPara(list);
                 mHandler.obtainMessage(MainActivity.REFRESH_DONE).sendToTarget();
             }
 

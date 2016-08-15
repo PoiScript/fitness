@@ -7,6 +7,7 @@ public class Para {
 
     public static final int TYPE_BPM = 0;
     public static final int TYPE_TEMP = 1;
+    public static final int TYPE_SPO2 = 2;
 
     public int getTime() {
         return time;

@@ -14,6 +14,11 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
             + "time INTEGER, "
             + "data INTEGER)";
 
+    public static final String CREATE_SPO2 = "create table Spo2 ("
+            + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + "time INTEGER, "
+            + "data INTEGER)";
+
     public static final String CREATE_TEMP = "create table Temp ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "time INTEGER, "
@@ -25,6 +30,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
             + "latitude REAL, "
             + "longitude REAL)";
 
+
     public DatabaseOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
         mContext = context;
@@ -33,6 +39,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_BPM);
+        db.execSQL(CREATE_SPO2);
         db.execSQL(CREATE_TEMP);
         db.execSQL(CREATE_LOCATION);
         Log.d("DEBUGGING", "Database Create Succeeded");
