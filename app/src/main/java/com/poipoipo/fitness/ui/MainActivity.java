@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -44,7 +43,6 @@ import java.util.TimeZone;
 
 import com.poipoipo.fitness.R;
 import com.poipoipo.fitness.bluetooth.BluetoothService;
-import com.poipoipo.fitness.bluetooth.DeviceListActivity;
 import com.poipoipo.fitness.chart.LineChartUtil;
 import com.poipoipo.fitness.data.Para;
 import com.poipoipo.fitness.data.ParaGenerator;
@@ -169,7 +167,6 @@ public class MainActivity extends AppCompatActivity
             }
         }
     };
-
 
     @Override
     public void onClick(View view) {

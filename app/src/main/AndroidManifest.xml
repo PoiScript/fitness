@@ -33,7 +33,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".bluetooth.DeviceListActivity"
+            android:name=".ui.DeviceListActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="Select Device"
             android:theme="@android:style/Theme.DeviceDefault.Light.Dialog" />

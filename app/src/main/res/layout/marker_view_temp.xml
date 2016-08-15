@@ -4,9 +4,10 @@
     android:layout_height="wrap_content">
 
     <TextView
+        android:gravity="center_horizontal"
         android:id="@+id/marker_view_y_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="2dp"
-        android:textColor="@color/pace" />
+        android:textColor="@color/temp" />
 </android.support.v7.widget.CardView>
