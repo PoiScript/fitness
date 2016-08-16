@@ -2,6 +2,12 @@
 
 An Entry for Electronics Innovation Design Contest.
 
+###Basic Features:
++ Get and parse JSON file from remote server
++ Manage data with SQLite database
++ Display data on screen
++ Show location on Google Maps
+
 ###Libraries:
 + [AOSP(Android Open Source Project)] (https://source.android.com/)
 + [Android Support Library] (https://developer.android.com/topic/libraries/support-library/index.html)
