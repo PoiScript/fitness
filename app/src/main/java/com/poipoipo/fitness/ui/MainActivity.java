@@ -26,13 +26,9 @@ import android.widget.Toast;
 
 import com.facebook.stetho.Stetho;
 import com.github.mikephil.charting.charts.LineChart;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -44,6 +40,8 @@ import java.util.TimeZone;
 import com.poipoipo.fitness.R;
 import com.poipoipo.fitness.bluetooth.BluetoothService;
 import com.poipoipo.fitness.chart.LineChartUtil;
+import com.poipoipo.fitness.data.Location;
+import com.poipoipo.fitness.data.LocationGenerator;
 import com.poipoipo.fitness.data.Para;
 import com.poipoipo.fitness.data.ParaGenerator;
 import com.poipoipo.fitness.data.Timestamp;
@@ -64,7 +62,6 @@ public class MainActivity extends AppCompatActivity
     private FloatingActionButton fab;
     Button editDate;
     TextView connectState;
-    GoogleMap map;
     private String mConnectedDeviceName = null;
     private Timestamp timestamp;
 
@@ -79,9 +76,9 @@ public class MainActivity extends AppCompatActivity
     private BluetoothService mChatService = null;
     private DatabaseHelper databaseHelper;
     private SwipeRefreshLayout swipeView;
-    List<Para> list = new ArrayList<>();
     List<LineChart> lineCharts = new ArrayList<>();
     LineChartUtil lineChartUtil;
+    MapUtil mapUtil;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -105,7 +102,6 @@ public class MainActivity extends AppCompatActivity
         editDate.setOnClickListener(this);
         calendar = Calendar.getInstance(TimeZone.getDefault());
         timestamp = new Timestamp(calendar);
-        updateDate();
         ImageButton prevDate = (ImageButton) findViewById(R.id.prev_date);
         prevDate.setOnClickListener(this);
         ImageButton nextDate = (ImageButton) findViewById(R.id.next_date);
@@ -119,6 +115,7 @@ public class MainActivity extends AppCompatActivity
         mapFragment.getMapAsync(this);
 
         databaseHelper = new DatabaseHelper(this);
+        updateDate();
         swipeView = (SwipeRefreshLayout) findViewById(R.id.swipe);
         swipeView.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -153,14 +150,14 @@ public class MainActivity extends AppCompatActivity
                     Toast.makeText(getApplicationContext(), msg.getData().getString(TOAST), Toast.LENGTH_SHORT).show();
                     break;
                 case START_REFRESH:
-                    lineChartUtil.refresh(Para.TYPE_BPM, databaseHelper.queryPara(Para.TYPE_BPM, timestamp.getTodayTimestamp()));
-                    lineChartUtil.refresh(Para.TYPE_SPO2, databaseHelper.queryPara(Para.TYPE_SPO2, timestamp.getTodayTimestamp()));
-                    lineChartUtil.refresh(Para.TYPE_TEMP, databaseHelper.queryPara(Para.TYPE_TEMP, timestamp.getTodayTimestamp()));
+                    lineChartUtil.refresh(Para.TYPE_BPM, databaseHelper.queryPara(Para.TYPE_BPM, timestamp.getDayTimestamp(calendar)));
+                    lineChartUtil.refresh(Para.TYPE_SPO2, databaseHelper.queryPara(Para.TYPE_SPO2, timestamp.getDayTimestamp(calendar)));
+                    lineChartUtil.refresh(Para.TYPE_TEMP, databaseHelper.queryPara(Para.TYPE_TEMP, timestamp.getDayTimestamp(calendar)));
+                    mapUtil.updateMap(databaseHelper.queryLocation(timestamp.getDayTimestamp(calendar)));
                     mHandler.obtainMessage(MainActivity.REFRESH_DONE).sendToTarget();
                     break;
                 case REFRESH_DONE:
                     swipeView.setRefreshing(false);
-                    Toast.makeText(getApplicationContext(), "Refresh Done", Toast.LENGTH_SHORT).show();
                     lineCharts.get(Para.TYPE_BPM).invalidate();
                     lineCharts.get(Para.TYPE_TEMP).invalidate();
                     lineCharts.get(Para.TYPE_SPO2).invalidate();
@@ -192,6 +189,7 @@ public class MainActivity extends AppCompatActivity
     private void updateDate() {
         editDate.setText(new StringBuilder().append(calendar.get(Calendar.YEAR)).append("/")
                 .append(calendar.get(Calendar.MONTH) + 1).append("/").append(calendar.get(Calendar.DAY_OF_MONTH)));
+        mHandler.obtainMessage(START_REFRESH).sendToTarget();
     }
 
     private DatePickerDialog.OnDateSetListener onDateSetListener =
@@ -213,32 +211,30 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onMapReady(GoogleMap googleMap) {
-        map = googleMap;
-        LatLng sydney = new LatLng(37.45, -122.0);
-        PolylineOptions options = new PolylineOptions()
-                .add(new LatLng(37.45, -122.0))  // North of the previous point, but at the same longitude
-                .add(new LatLng(37.45, -122.2))  // Same latitude, and 30km to the west
-                .add(new LatLng(37.35, -122.2))  // Same longitude, and 16km to the south
-                .add(new LatLng(37.35, -122.0)); // Closes the polyline.
-        map.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        map.addPolyline(options);
-        map.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        map.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-            @Override
-            public void onMapClick(LatLng latLng) {
-                startActivity(new Intent(MainActivity.this, MapsActivity.class));
-            }
-        });
+    public void onMapReady(final GoogleMap googleMap) {
+        mapUtil = new MapUtil(googleMap, this);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_random:
+            case R.id.action_random_location:
+                databaseHelper.insertLocation(new LocationGenerator().generate(10));
+                Toast.makeText(getApplicationContext(), "Random Location Created", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_clear_location:
+                databaseHelper.delete(DatabaseHelper.TABLE_LOCATION);
+                Toast.makeText(getApplicationContext(), "Database Location Cleared", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_random_data:
                 databaseHelper.insertPara(new ParaGenerator().generate(10));
                 Toast.makeText(getApplicationContext(), "Random Data Created", Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.action_clear_para:
+                databaseHelper.delete(DatabaseHelper.TABLE_BPM);
+                databaseHelper.delete(DatabaseHelper.TABLE_SPO2);
+                databaseHelper.delete(DatabaseHelper.TABLE_TEMP);
+                Toast.makeText(getApplicationContext(), "Database BPM, SPO2, TEMP cleared", Toast.LENGTH_SHORT).show();
             case R.id.action_clear:
                 databaseHelper.deleteAll();
                 Toast.makeText(getApplicationContext(), "Database Cleared", Toast.LENGTH_SHORT).show();

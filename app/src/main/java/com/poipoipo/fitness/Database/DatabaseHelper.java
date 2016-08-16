@@ -1,17 +1,15 @@
 package com.poipoipo.fitness.database;
 
-import android.app.LoaderManager;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import com.poipoipo.fitness.data.Location;
 import com.poipoipo.fitness.data.Para;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHelper {
     private static final String TAG = "DatabaseHelper";
@@ -57,11 +55,29 @@ public class DatabaseHelper {
         values.clear();
     }
 
+    public void insertLocation(Location location) {
+        values.put("time", location.getTime());
+        values.put("latitude", location.getLatitude());
+        values.put("longitude", location.getLongitude());
+        database.insert(TABLE_LOCATION, null, values);
+        values.clear();
+    }
+
+    public void insertLocation(List<Location> locations) {
+        for (Location location : locations) {
+            insertLocation(location);
+        }
+    }
+
     public void deleteAll() {
         database.execSQL("delete from " + TABLE_BPM);
         database.execSQL("delete from " + TABLE_TEMP);
         database.execSQL("delete from " + TABLE_SPO2);
         database.execSQL("delete from " + TABLE_LOCATION);
+    }
+
+    public void delete (String table){
+        database.execSQL("delete from " + table);
     }
 
     public List<Para> queryPara(int type) {
@@ -131,11 +147,11 @@ public class DatabaseHelper {
         return locations;
     }
 
-    public List<Location> queryLocation(int timeMin, int timeMax) {
+    public List<Location> queryLocation(int timeMin) {
         String where = "time < ? and time > ?";
-        String[] whereValues = {Integer.toString(timeMax), Integer.toString(timeMin)};
+        String[] whereValue = {Integer.toString(timeMin + 24 * 60 * 60), Integer.toString(timeMin)};
         locations.clear();
-        cursor = database.query(TABLE_LOCATION, null, where, whereValues, null, null, null);
+        cursor = database.query(TABLE_LOCATION, null, where, whereValue, null, null, null);
         if (cursor.moveToFirst()) {
             do {
                 Location location = new Location();

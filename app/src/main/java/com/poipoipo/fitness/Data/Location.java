@@ -1,5 +1,7 @@
 package com.poipoipo.fitness.data;
 
+import com.google.android.gms.maps.model.LatLng;
+
 public class Location {
     private int time;
     private float longitude;
@@ -27,5 +29,9 @@ public class Location {
 
     public float getLongitude() {
         return longitude;
+    }
+
+    public LatLng getLatLng(){
+        return new LatLng(latitude, longitude);
     }
 }
