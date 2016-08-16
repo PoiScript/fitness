@@ -62,8 +62,13 @@
     <string name="about">About</string>
     <string name="disconnect">Disconnect</string>
 
-    <string name="action_random">Generate Random Data</string>
-    <string name="action_location">Generate Random Location</string>
+    <string name="action_random_para">Generate Random Para</string>
+    <string name="action_random_location">Generate Random Location</string>
+    <string name="action_clear_para">Clear Para</string>
+    <string name="action_clear_location">Clear Location</string>
     <string name="action_clear">Clear Database</string>
     <string name="title_activity_maps">Map</string>
+
+    <string name="prev_date">Prev Date</string>
+    <string name="next_date">Next Date</string>
 </resources>

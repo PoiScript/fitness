@@ -2,18 +2,30 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_random"
-        app:showAsAction="never"
-        android:title="@string/action_random" />
+        android:id="@+id/action_random_data"
+        android:orderInCategory="96"
+        android:title="@string/action_random_para"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_clear_para"
+        android:orderInCategory="97"
+        android:title="@string/action_clear_para"
+        app:showAsAction="never" />
 
+    <item
+        android:id="@+id/action_random_location"
+        android:orderInCategory="98"
+        android:title="@string/action_random_location"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_clear_location"
+        android:orderInCategory="99"
+        android:title="@string/action_clear_location"
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_clear"
         android:orderInCategory="100"
         android:title="@string/action_clear"
         app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_location"
-        android:title="@string/action_location"
-        app:showAsAction="never"/>
 </menu>

@@ -20,6 +20,7 @@ public class ParaGenerator {
     private Random random = new Random();
 
     public List<Para> generate(int length){
+        list.clear();
         for (int i = 0; i < length; i++){
             Para para = new Para();
             para.setData(random.nextInt(DATA_MAX - DATA_MIN + 1) + DATA_MIN);

@@ -7,7 +7,6 @@ import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.components.MarkerView;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.highlight.Highlight;
-
 import com.poipoipo.fitness.R;
 
 public class TempMarkerView extends MarkerView {
@@ -22,7 +21,6 @@ public class TempMarkerView extends MarkerView {
     @Override
     public void refreshContent(Entry entry, Highlight highlight) {
         textView.setText(Float.toString(entry.getVal()) + "°C\n" + chart.getData().getXVals().get(entry.getXIndex()) +  "");
-
     }
 
     @Override
