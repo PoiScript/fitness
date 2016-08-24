@@ -5,6 +5,8 @@
 
     <color name="bpm">#F44336</color>
     <color name="spo2">#3F51B5</color>
+    <color name="temp">#009688</color>
+    <color name="white">#FFF</color>
 
     <color name="semi_transparent">#66000000</color>
 </resources>

@@ -3,34 +3,20 @@ package com.poipoipo.fitness.data;
 import java.util.List;
 
 public class Data {
-
+    private List<DataBean> data;
     private StatusBean status;
 
-    private List<DataBean> data;
 
     public List<DataBean> getData() {
         return data;
     }
 
-    public static class StatusBean {
-        private String status;
-        private int cout;
+    public StatusBean getStatus() {
+        return status;
+    }
 
-        public String getStatus() {
-            return status;
-        }
-
-        public void setStatus(String status) {
-            this.status = status;
-        }
-
-        public int getCout() {
-            return cout;
-        }
-
-        public void setCout(int cout) {
-            this.cout = cout;
-        }
+    public void setStatus(StatusBean status) {
+        this.status = status;
     }
 
     public static class DataBean {
@@ -43,32 +29,28 @@ public class Data {
             return gps;
         }
 
-        public void setGps(String gps) {
-            this.gps = gps;
-        }
-
         public String getHeartrate() {
             return heartrate;
-        }
-
-        public void setHeartrate(String heartrate) {
-            this.heartrate = heartrate;
         }
 
         public String getSpo2() {
             return spo2;
         }
 
-        public void setSpo2(String spo2) {
-            this.spo2 = spo2;
-        }
-
         public String getTimestamp() {
             return timestamp;
         }
+    }
 
-        public void setTimestamp(String timestamp) {
-            this.timestamp = timestamp;
+    public static class StatusBean {
+        private int cout;
+
+        public int getCout() {
+            return cout;
+        }
+
+        public void setCout(int cout) {
+            this.cout = cout;
         }
     }
 }

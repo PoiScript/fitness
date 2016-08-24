@@ -16,12 +16,12 @@ public class ParaGenerator {
     private static final int TIME_MIN = 1471276800; // 8-16-2016
     private static final int TIME_MAX = TIME_MIN + 24 * 60 * 60; // 8-17-2016
 
-    private List<Para> list = new ArrayList<>();
-    private Random random = new Random();
+    private final List<Para> list = new ArrayList<>();
+    private final Random random = new Random();
 
-    public List<Para> generate(int length){
+    public List<Para> generate() {
         list.clear();
-        for (int i = 0; i < length; i++){
+        for (int i = 0; i < 10; i++) {
             Para para = new Para(random.nextInt(3));
             para.setData(random.nextInt(DATA_MAX - DATA_MIN + 1) + DATA_MIN);
             para.setTime(random.nextInt(TIME_MAX - TIME_MIN + 1) + TIME_MIN);

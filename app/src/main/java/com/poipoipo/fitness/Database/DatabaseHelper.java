@@ -20,11 +20,11 @@ public class DatabaseHelper {
     public static final String DATABASE_NAME = "Para.db";
     public static final int VERSION = 2;
     private static final String TAG = "DatabaseHelper";
-    private SQLiteDatabase database;
-    private ContentValues values = new ContentValues();
+    private final SQLiteDatabase database;
+    private final ContentValues values = new ContentValues();
+    private final List<Para> paras = new ArrayList<>();
+    private final List<Location> locations = new ArrayList<>();
     private Cursor cursor;
-    private List<Para> paras = new ArrayList<>();
-    private List<Location> locations = new ArrayList<>();
 
     public DatabaseHelper(Context context) {
         database = new DatabaseOpenHelper(context).getWritableDatabase();
@@ -84,27 +84,6 @@ public class DatabaseHelper {
         database.execSQL("delete from " + table);
     }
 
-//    public List<Para> queryPara(int type) {
-//        paras.clear();
-//        switch (type) {
-//            case Para.TYPE_BPM:
-//                cursor = database.query(TABLE_BPM, null, null, null, null, null, "time");
-//                break;
-//            case Para.TYPE_SPO2:
-//                cursor = database.query(TABLE_SPO2, null, null, null, null, null, "time");
-//        }
-//        if (cursor.moveToFirst()) {
-//            do {
-//                Para para = new Para(type);
-//                para.setTime(cursor.getInt(cursor.getColumnIndex("time")));
-//                para.setData(cursor.getInt(cursor.getColumnIndex("data")));
-//                paras.add(para);
-//            } while (cursor.moveToNext());
-//        }
-//        cursor.close();
-//        return paras;
-//    }
-
     public List<Para> queryPara(int type, int timeMin) {
         String where = "time < ? and time > ?";
         String[] whereValue = {Integer.toString(timeMin + 24 * 60 * 60), Integer.toString(timeMin)};
@@ -129,21 +108,20 @@ public class DatabaseHelper {
         return paras;
     }
 
-//    public List<Location> queryLocation() {
-//        locations.clear();
-//        cursor = database.query(TABLE_LOCATION, null, null, null, null, null, null);
-//        if (cursor.moveToFirst()) {
-//            do {
-//                Location location = new Location();
-//                location.setTime(cursor.getInt(cursor.getColumnIndex("time")));
-//                location.setLatitude(cursor.getFloat(cursor.getColumnIndex("latitude")));
-//                location.setLongitude(cursor.getFloat(cursor.getColumnIndex("longitude")));
-//                locations.add(location);
-//            } while (cursor.moveToNext());
-//        }
-//        cursor.close();
-//        return locations;
-//    }
+    public Location queryLocation() {
+        Location location = new Location();
+        cursor = database.query(TABLE_LOCATION, null, null, null, null, null, null);
+        if (cursor.moveToFirst()) {
+            do {
+                location.setTime(cursor.getInt(cursor.getColumnIndex("time")));
+                location.setLatitude(cursor.getFloat(cursor.getColumnIndex("latitude")));
+                location.setLongitude(cursor.getFloat(cursor.getColumnIndex("longitude")));
+                locations.add(location);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return location;
+    }
 
     public List<Location> queryLocation(int timeMin) {
         String where = "time < ? and time > ?";

@@ -37,10 +37,7 @@
             android:configChanges="orientation|keyboardHidden"
             android:label="Select Device"
             android:theme="@android:style/Theme.DeviceDefault.Light.Dialog" />
-        <activity
-            android:name=".ui.MapsActivity"
-            android:label="@string/title_activity_maps"
-            android:theme="@style/AppTheme.NoActionBar" />
+
     </application>
 
 </manifest>

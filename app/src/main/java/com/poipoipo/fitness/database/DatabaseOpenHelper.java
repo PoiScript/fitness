@@ -17,12 +17,10 @@ class DatabaseOpenHelper extends SQLiteOpenHelper {
             + "time INTEGER PRIMARY KEY, "
             + "latitude REAL, "
             + "longitude REAL)";
-    private final Context mContext;
 
 
     public DatabaseOpenHelper(Context context) {
         super(context, DatabaseHelper.DATABASE_NAME, null, DatabaseHelper.VERSION);
-        mContext = context;
     }
 
     @Override

@@ -24,10 +24,10 @@ import java.util.Locale;
 public class LineChartUtil {
     private static final String TAG = "LineChartUtil";
     private static final SimpleDateFormat format = new SimpleDateFormat("HH:mm", Locale.getDefault());
-    private List<LineChart> lineCharts = new ArrayList<>();
+    private final List<LineChart> lineCharts = new ArrayList<>();
+    private final Activity activity;
     private LineChart lineChart;
     private LineDataSet lineDataSet;
-    private Activity activity;
 
     public LineChartUtil(Activity activity) {
         lineCharts.add(Para.TYPE_BPM, (LineChart) activity.findViewById(R.id.bpm_chart));
@@ -50,7 +50,7 @@ public class LineChartUtil {
                     xVal.add(format.format(new Date(para.getTime() * 1000L)));
                 }
                 lineChart = lineCharts.get(Para.TYPE_BPM);
-                lineDataSet = new LineDataSet(entries, "Heart Rate");
+                lineDataSet = new LineDataSet(entries, "心率");
                 lineDataSet.setHighlightLineWidth(0.001f);
                 chartsSettings(lineChart, Para.TYPE_BPM);
                 break;
@@ -70,7 +70,7 @@ public class LineChartUtil {
                     xVal.add(format.format(new Date(para.getTime() * 1000L)));
                 }
                 lineChart = lineCharts.get(Para.TYPE_SPO2);
-                lineDataSet = new LineDataSet(entries, "Blood Oxygen Level");
+                lineDataSet = new LineDataSet(entries, "血氧饱和度");
                 lineDataSet.setHighlightLineWidth(0.001f);
                 chartsSettings(lineChart, Para.TYPE_SPO2);
         }

@@ -7,20 +7,20 @@ import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.facebook.stetho.Stetho;
 import com.github.mikephil.charting.charts.LineChart;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
 import com.poipoipo.fitness.DatePickerFragment;
 import com.poipoipo.fitness.R;
 import com.poipoipo.fitness.chart.LineChartUtil;
@@ -35,65 +35,40 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity
         implements OnClickListener, OnMapReadyCallback, SwipeRefreshLayout.OnRefreshListener {
-    public static final int MESSAGE_BLUETOOTH_STATE_CHANGE = 1;
-    public static final int MESSAGE_READ = 2;
-    public static final int MESSAGE_DEVICE_NAME = 3;
-    public static final int MESSAGE_TOAST = 4;
     public static final int REFRESH_SPO2 = 7;
     public static final int REFRESH_BPM = 8;
     public static final int REFRESH_MAP = 9;
-    public static final String DEVICE_NAME = "device_name", TOAST = "toast";
+    public static final int REFRESH_REAL_TIME_PARA = 10;
+    public static final int REFRESH_REAL_TIME_LATLNG = 11;
+    public static final int REFRESH_REAL_TIME_LOCATION = 13;
     private static final String TAG = "MainActivity";
-    private static final int START_REFRESH = 5;
-    //    private static final int REFRESH_DONE = 6;
-//    private static final int REQUEST_CONNECT_DEVICE = 2, REQUEST_ENABLE_BT = 3;
+    private static final int REFRESH_INIT = 5;
     public Calendar calendar;
-    //    private Intent serverIntent;
-//    private FloatingActionButton fab;
     private Button editDate;
-    //    private TextView connectState;
-//    private String mConnectedDeviceName = null;
-    // Array adapter for the conversation thread
-    // private ArrayAdapter<String> mConversationArrayAdapter;
-    // String buffer for outgoing messages
-    // Local Bluetooth adapter
-//    private BluetoothAdapter mBluetoothAdapter = null;
-    // Member object for the chat services
-//    private BluetoothService mChatService = null;
     private DatabaseHelper databaseHelper;
     private SwipeRefreshLayout swipeView;
     private HttpUtil httpUtil;
     private List<LineChart> lineCharts = new ArrayList<>();
     private LineChartUtil lineChartUtil;
     private MapUtil mapUtil;
-    // The Handler that gets information back from the BluetoothService, the HttpCallback and Database operation
+    private TextView realTimeBpm;
+    private TextView realTimeSpo2;
+    private TextView realTimeLngLat;
+    private TextView realTimeLocation;
     private final Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
-//                case MESSAGE_BLUETOOTH_STATE_CHANGE:
-//                    bluetoothStateChange(msg.arg1);
-//                    break;
-//                case MESSAGE_READ:
-//                    fab.setImageResource(R.drawable.ic_sync);
-////                    byte[] readBuf = (byte[]) msg.obj;
-////                    String readMessage = new String(readBuf, 0, msg.arg1);
-//                    break;
-//                case MESSAGE_DEVICE_NAME:
-//                    // save the connected device's name
-//                    mConnectedDeviceName = msg.getData().getString(DEVICE_NAME);
-//                    Toast.makeText(getApplicationContext(), "Connected to " + mConnectedDeviceName, Toast.LENGTH_SHORT).show();
-//                    break;
-//                case MESSAGE_TOAST:
-//                    Toast.makeText(getApplicationContext(), msg.getData().getString(TOAST), Toast.LENGTH_SHORT).show();
-//                    break;
-                case START_REFRESH:
+                case REFRESH_INIT:
                     lineChartUtil.refresh(Para.TYPE_BPM, databaseHelper.queryPara(Para.TYPE_BPM, Timestamp.getDayTimestampCalendar(calendar)));
                     lineChartUtil.refresh(Para.TYPE_SPO2, databaseHelper.queryPara(Para.TYPE_SPO2, Timestamp.getDayTimestampCalendar(calendar)));
                     mapUtil.updateMap(databaseHelper.queryLocation(Timestamp.getDayTimestampCalendar(calendar)));
+//                    mHandler.obtainMessage(REFRESH_INIT).sendToTarget();
                     swipeView.setRefreshing(false);
                     lineCharts.get(Para.TYPE_BPM).invalidate();
                     lineCharts.get(Para.TYPE_SPO2).invalidate();
@@ -114,28 +89,30 @@ public class MainActivity extends AppCompatActivity
                     swipeView.setRefreshing(false);
                     mapUtil.updateMap(httpUtil.getLocations());
                     databaseHelper.insertLocation(httpUtil.getLocations());
+                    break;
+                case REFRESH_REAL_TIME_PARA:
+                    updateRealTimePara(msg.arg1, msg.arg1);
+                    break;
+                case REFRESH_REAL_TIME_LATLNG:
+                    updateRealTimeLatLng((LatLng) msg.obj);
+                    break;
+                case REFRESH_REAL_TIME_LOCATION:
+                    updateRealTimeLocation((String) msg.obj);
             }
         }
     };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-//        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-//        if (mBluetoothAdapter == null) {
-//            Toast.makeText(this, "Bluetooth is not available", Toast.LENGTH_LONG).show();
-//            finish();
-//        }
         super.onCreate(savedInstanceState);
 
-        /*Stetho Debug*/
-        Stetho.initializeWithDefaults(this);
-        Log.d(TAG, "onCreate: Stetho Running");
+//        /*Stetho Debug*/
+//        Stetho.initializeWithDefaults(this);
+//        Log.d(TAG, "onCreate: Stetho Running");
 
         setContentView(R.layout.main_activity);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(this);
         editDate = (Button) findViewById(R.id.edit_date);
         editDate.setOnClickListener(this);
         calendar = Calendar.getInstance(TimeZone.getDefault());
@@ -147,25 +124,40 @@ public class MainActivity extends AppCompatActivity
         lineChartUtil = new LineChartUtil(this);
         lineCharts = lineChartUtil.getInstances();
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
         databaseHelper = new DatabaseHelper(this);
         updateDate();
         swipeView = (SwipeRefreshLayout) findViewById(R.id.swipe);
         swipeView.setOnRefreshListener(this);
-
         httpUtil = new HttpUtil(mHandler);
+
+        realTimeBpm = (TextView) findViewById(R.id.real_time_bpm);
+        realTimeLngLat = (TextView) findViewById(R.id.real_time_lng_lat);
+        realTimeSpo2 = (TextView) findViewById(R.id.real_time_spo2);
+        realTimeLocation = (TextView) findViewById(R.id.real_time_location);
+
+        new Timer().schedule(new AutoUpdate(), 0, 10000);
+    }
+
+    private void updateRealTimePara(int bpm, int spo2) {
+        realTimeBpm.setText(new StringBuilder().append("心率：").append(bpm));
+        realTimeSpo2.setText(new StringBuilder().append("血氧饱和度：").append(spo2));
+    }
+
+    private void updateRealTimeLatLng(LatLng latLng) {
+        realTimeLngLat.setText(new StringBuilder().append("经度：").append(latLng.latitude).append("维度：").append(latLng.longitude));
+        httpUtil.parseLatLng(latLng);
+    }
+
+    private void updateRealTimeLocation(String location) {
+        realTimeLocation.setText(location);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-//            case R.id.fab:
-//                serverIntent = new Intent(MainActivity.this, DeviceListActivity.class);
-//                startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
-//                break;
             case R.id.edit_date:
                 DialogFragment fragment = DatePickerFragment.newInstance(calendar);
                 fragment.show(getFragmentManager(), "datePicker");
@@ -184,7 +176,7 @@ public class MainActivity extends AppCompatActivity
     public void updateDate() {
         editDate.setText(new StringBuilder().append(calendar.get(Calendar.YEAR)).append("/")
                 .append(calendar.get(Calendar.MONTH) + 1).append("/").append(calendar.get(Calendar.DAY_OF_MONTH)));
-        mHandler.obtainMessage(START_REFRESH).sendToTarget();
+        mHandler.obtainMessage(REFRESH_INIT).sendToTarget();
     }
 
     @Override
@@ -227,88 +219,16 @@ public class MainActivity extends AppCompatActivity
         httpUtil.requestBpm(calendar);
     }
 
-//    private void bluetoothStateChange(int state) {
-//        switch (state) {
-//            case BluetoothService.STATE_CONNECTED:
-//                connectState.setText(getString(R.string.title_connected_to, mConnectedDeviceName));
-//                break;
-//            case BluetoothService.STATE_CONNECTING:
-//                connectState.setText(R.string.title_connecting);
-//                break;
-//            case BluetoothService.STATE_LISTEN:
-//            case BluetoothService.STATE_NONE:
-//                fab.setImageResource(R.drawable.ic_disconnect);
-//                break;
-//        }
-//    }
-
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        switch (requestCode) {
-//            case REQUEST_CONNECT_DEVICE:
-//                // When DeviceListActivity returns with a device to connect
-//                if (resultCode == Activity.RESULT_OK) {
-//                    connectDevice(data);
-//                }
-//                break;
-//            case REQUEST_ENABLE_BT:
-//                if (resultCode != Activity.RESULT_OK) {
-//                    Log.d(TAG, "BT not enabled");
-//                    Toast.makeText(this, R.string.bt_not_enabled_leaving, Toast.LENGTH_SHORT).show();
-//                    finish();
-//                }
-//        }
-//    }
-
-//    private void connectDevice(Intent data) {
-//        // Get the device MAC address
-//        String address = data.getExtras().getString(
-//                DeviceListActivity.EXTRA_DEVICE_ADDRESS);
-//        // Get the BluetoothDevice object
-//        BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(address);
-//        // Attempt to connect to the device
-//        mChatService.connect(device);
-//    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-        // If BT is not on, request that it be enabled.
-        // setupChat() will then be called during onActivityResult
-//        if (!mBluetoothAdapter.isEnabled()) {
-//            Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-//            startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
-//            // Otherwise, setup the chat session
-//        }
-//    }
-
-//    @Override
-//    public synchronized void onResume() {
-//        super.onResume();
-//        // Performing this check in onResume() covers the case in which BT was
-//        // not enabled during onStart(), so we were paused to enable it...
-//        // onResume() will be called when ACTION_REQUEST_ENABLE activity
-//        // returns.
-//        if (mChatService != null) {
-//            // Only if the state is STATE_NONE, do we know that we haven't
-//            // started already
-//            if (mChatService.getState() == BluetoothService.STATE_NONE) {
-//                // Start the Bluetooth chat services
-//                mChatService.start();
-//            }
-//        }
-//    }
-
-//    @Override
-//    public void onDestroy() {
-//        super.onDestroy();
-//        // Stop the Bluetooth chat services
-//        if (mChatService != null)
-//            mChatService.stop();
-//    }
+    class AutoUpdate extends TimerTask {
+        @Override
+        public void run() {
+            httpUtil.updateRequest();
+        }
+    }
 }
