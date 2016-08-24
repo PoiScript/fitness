@@ -10,8 +10,8 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.poipoipo.fitness.R;
 
 public class BpmMarkerView extends MarkerView {
-    private Chart chart;
-    private TextView textView;
+    private final Chart chart;
+    private final TextView textView;
 
     public BpmMarkerView(Context context, Chart chart) {
         super(context, R.layout.marker_view_bpm);

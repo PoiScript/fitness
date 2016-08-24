@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_random_location:
-                databaseHelper.insertLocation(new LocationGenerator().generate(10));
+                databaseHelper.insertLocation(new LocationGenerator().generate());
                 Toast.makeText(getApplicationContext(), "Random Location Created", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_clear_location:
@@ -204,7 +204,7 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(getApplicationContext(), "Database Location Cleared", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_random_data:
-                databaseHelper.insertPara(new ParaGenerator().generate(10));
+                databaseHelper.insertPara(new ParaGenerator().generate());
                 Toast.makeText(getApplicationContext(), "Random Data Created", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_clear_para:

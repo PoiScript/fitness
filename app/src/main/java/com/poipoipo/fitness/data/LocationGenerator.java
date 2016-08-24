@@ -12,13 +12,13 @@ public class LocationGenerator {
     private static final int TIME_MIN = 1471276800; // 8-16-2016
     private static final int TIME_MAX = TIME_MIN + 24 * 60 * 60; // 8-17-2016
 
-    private List<Location> locations = new ArrayList<>();
-    private Random random = new Random();
+    private final List<Location> locations = new ArrayList<>();
+    private final Random random = new Random();
     private Location prevLocation;
 
-    public List<Location> generate (int length){
+    public List<Location> generate() {
         locations.clear();
-        for (int i = 0; i < length; i++){
+        for (int i = 0; i < 10; i++) {
             Location location = new Location();
             if (prevLocation == null) {
                 prevLocation = new Location();

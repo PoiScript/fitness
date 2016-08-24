@@ -17,7 +17,7 @@ class DatabaseOpenHelper extends SQLiteOpenHelper {
             + "time INTEGER PRIMARY KEY, "
             + "latitude REAL, "
             + "longitude REAL)";
-    private Context mContext;
+    private final Context mContext;
 
 
     public DatabaseOpenHelper(Context context) {

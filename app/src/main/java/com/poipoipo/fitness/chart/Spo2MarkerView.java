@@ -10,8 +10,8 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.poipoipo.fitness.R;
 
 public class Spo2MarkerView extends MarkerView {
-    private Chart chart;
-    private TextView textView;
+    private final Chart chart;
+    private final TextView textView;
 
     public Spo2MarkerView(Context context, Chart chart) {
         super(context, R.layout.marker_view_spo2);
@@ -21,7 +21,7 @@ public class Spo2MarkerView extends MarkerView {
 
     @Override
     public void refreshContent(Entry entry, Highlight highlight) {
-        textView.setText(Float.toString(entry.getVal()) + "%\n" + chart.getData().getXVals().get(entry.getXIndex()) +  "");
+        textView.setText(new StringBuilder(Float.toString(entry.getVal())).append("%\n").append(chart.getData().getXVals().get(entry.getXIndex())));
     }
 
     @Override

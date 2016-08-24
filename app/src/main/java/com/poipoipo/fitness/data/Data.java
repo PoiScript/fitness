@@ -8,20 +8,8 @@ public class Data {
 
     private List<DataBean> data;
 
-    public StatusBean getStatus() {
-        return status;
-    }
-
-    public void setStatus(StatusBean status) {
-        this.status = status;
-    }
-
     public List<DataBean> getData() {
         return data;
-    }
-
-    public void setData(List<DataBean> data) {
-        this.data = data;
     }
 
     public static class StatusBean {

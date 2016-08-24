@@ -30,9 +30,9 @@ class MapUtil
     private static final String TAG = "MapUtil";
     private static final int color = Color.parseColor("#607D8B");
     private static final SimpleDateFormat format = new SimpleDateFormat("HH:mm", Locale.getDefault());
+    private final GoogleMap map;
+    private final Context context;
     private BitmapDescriptor point = BitmapDescriptorFactory.fromResource(R.drawable.pointg);
-    private GoogleMap map;
-    private Context context;
 
     public MapUtil(GoogleMap map, Context context) {
         this.context = context;
@@ -40,6 +40,7 @@ class MapUtil
         map.setOnMarkerClickListener(this);
         map.setInfoWindowAdapter(this);
         BitmapDrawable drawable = (BitmapDrawable) ResourcesCompat.getDrawable(context.getResources(), R.drawable.pointg, null);
+        assert drawable != null;
         Bitmap bitmap = Bitmap.createScaledBitmap(drawable.getBitmap(), 10, 10, false);
         point = BitmapDescriptorFactory.fromBitmap(bitmap);
     }
