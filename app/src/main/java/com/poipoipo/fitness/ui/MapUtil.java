@@ -1,8 +1,12 @@
 package com.poipoipo.fitness.ui;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -23,28 +27,29 @@ import java.util.Locale;
 
 class MapUtil
         implements GoogleMap.InfoWindowAdapter, GoogleMap.OnMarkerClickListener {
-    private static final BitmapDescriptor point = BitmapDescriptorFactory.fromResource(R.drawable.pointg);
+    private static final String TAG = "MapUtil";
     private static final int color = Color.parseColor("#607D8B");
     private static final SimpleDateFormat format = new SimpleDateFormat("HH:mm", Locale.getDefault());
-    private List<Location> locations;
-    //    private LayoutInflater inflater;
+    private BitmapDescriptor point = BitmapDescriptorFactory.fromResource(R.drawable.pointg);
     private GoogleMap map;
     private Context context;
 
     public MapUtil(GoogleMap map, Context context) {
         this.context = context;
-//        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.map = map;
         map.setOnMarkerClickListener(this);
         map.setInfoWindowAdapter(this);
+        BitmapDrawable drawable = (BitmapDrawable) ResourcesCompat.getDrawable(context.getResources(), R.drawable.pointg, null);
+        Bitmap bitmap = Bitmap.createScaledBitmap(drawable.getBitmap(), 10, 10, false);
+        point = BitmapDescriptorFactory.fromBitmap(bitmap);
     }
 
     public void updateMap(List<Location> locations) {
-        this.locations = locations;
         map.clear();
         if (locations.size() > 0) {
             PolylineOptions options = new PolylineOptions();
             for (Location location : locations) {
+                Log.d(TAG, "updateMap:  lng = " + location.getLongitude() + " lat = " + location.getLatitude());
                 map.addMarker(new MarkerOptions()
                         .position(location.getLatLng())
                         .title("Latitude: " + location.getLatitude()
@@ -63,7 +68,6 @@ class MapUtil
     @Override
     public View getInfoWindow(Marker marker) {
         View view = LayoutInflater.from(context).inflate(R.layout.info_content, null);
-//        View view = inflater.inflate(R.layout.info_content, null);
         CardView cardView = (CardView) view.findViewById(R.id.info_windows_card);
         cardView.setBackgroundColor(color);
         TextView title = (TextView) view.findViewById(R.id.info_windows_title);

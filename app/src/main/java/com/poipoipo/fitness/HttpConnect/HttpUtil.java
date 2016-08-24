@@ -27,8 +27,8 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class HttpUtil {
-    private static final SimpleDateFormat requestFormat = new SimpleDateFormat("yyyyMMdd", Locale.getDefault());
     private static final SimpleDateFormat parseFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+    private static final SimpleDateFormat requestFormat = new SimpleDateFormat("yyyyMMdd", Locale.getDefault());
     private static final String TAG = "HttpUtil";
     private static final Gson gson = new Gson();
     private final OkHttpClient client = new OkHttpClient();
@@ -127,12 +127,12 @@ public class HttpUtil {
         Data data = gson.fromJson(response.body().charStream(), Data.class);
         for (Data.DataBean dataBean : data.getData()) {
             try {
-                Para para = new Para(Para.TYPE_SPO2);
+                Para para = new Para(Para.TYPE_BPM);
                 Date date = parseFormat.parse(dataBean.getTimestamp());
                 para.setTime(Timestamp.getTimestampByLong(date.getTime()));
                 para.setData((int) dataBean.getHeartrate().charAt(0));
                 Log.d(TAG, "parseBpm: timestamp = " + para.getTime() + "data = " + para.getData());
-                spo2s.add(para);
+                bpm.add(para);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -153,8 +153,8 @@ public class HttpUtil {
                 location.setTime(Timestamp.getTimestampByLong(date.getTime()));
                 String[] parts = dataBean.getGps().split(",");
                 try {
-                    location.setLongitude(Float.parseFloat(parts[2]) / 100);
-                    location.setLatitude(Float.parseFloat(parts[4]) / 100);
+                    location.setLatitude(Float.parseFloat(parts[2]) / 100);
+                    location.setLongitude(Float.parseFloat(parts[4]) / 100);
                     locations.add(location);
                     Log.d(TAG, "parseLocation: time = " + location.getTime() + " lng = " + location.getLongitude() + " lat = " + location.getLatitude());
                 } catch (NumberFormatException e) {
