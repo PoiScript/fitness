@@ -13,15 +13,15 @@ public class BpmMarkerView extends MarkerView {
     private Chart chart;
     private TextView textView;
 
-    public BpmMarkerView(Context context, int layoutRes, Chart chart){
-        super(context, layoutRes);
+    public BpmMarkerView(Context context, Chart chart) {
+        super(context, R.layout.marker_view_bpm);
         textView = (TextView) findViewById(R.id.marker_view_y_value);
         this.chart = chart;
     }
 
     @Override
     public void refreshContent(Entry entry, Highlight highlight) {
-        textView.setText(Float.toString(entry.getVal()) + "\n" + chart.getData().getXVals().get(entry.getXIndex()) +  "");
+        textView.setText(new StringBuilder().append(Float.toString(entry.getVal())).append("\n").append(chart.getData().getXVals().get(entry.getXIndex())));
     }
 
     @Override

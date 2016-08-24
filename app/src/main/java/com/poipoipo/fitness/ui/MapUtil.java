@@ -21,19 +21,19 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
 
-public class MapUtil
+class MapUtil
         implements GoogleMap.InfoWindowAdapter, GoogleMap.OnMarkerClickListener {
-    private static final BitmapDescriptor point = BitmapDescriptorFactory.fromResource(R.mipmap.pointg);
+    private static final BitmapDescriptor point = BitmapDescriptorFactory.fromResource(R.drawable.pointg);
     private static final int color = Color.parseColor("#607D8B");
     private static final SimpleDateFormat format = new SimpleDateFormat("HH:mm", Locale.getDefault());
-    List<Location> locations;
-    private LayoutInflater inflater;
-    private Context context;
+    private List<Location> locations;
+    //    private LayoutInflater inflater;
     private GoogleMap map;
+    private Context context;
 
     public MapUtil(GoogleMap map, Context context) {
         this.context = context;
-        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.map = map;
         map.setOnMarkerClickListener(this);
         map.setInfoWindowAdapter(this);
@@ -62,7 +62,8 @@ public class MapUtil
 
     @Override
     public View getInfoWindow(Marker marker) {
-        View view = inflater.inflate(R.layout.info_content, null);
+        View view = LayoutInflater.from(context).inflate(R.layout.info_content, null);
+//        View view = inflater.inflate(R.layout.info_content, null);
         CardView cardView = (CardView) view.findViewById(R.id.info_windows_card);
         cardView.setBackgroundColor(color);
         TextView title = (TextView) view.findViewById(R.id.info_windows_title);

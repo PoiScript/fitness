@@ -9,12 +9,12 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
+import com.poipoipo.fitness.ui.MainActivity;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.UUID;
-
-import com.poipoipo.fitness.ui.MainActivity;
 
 /**
  * This class does all the work for setting up and managing Bluetooth
@@ -23,19 +23,23 @@ import com.poipoipo.fitness.ui.MainActivity;
  * performing data transmissions when connected.
  */
 public class BluetoothService {
-    // Debugging
-    private static final String TAG = "BluetoothService";
-
-    // Name for the SDP record when creating server socket
-    private static final String NAME = "MainActivity";
-
-    // Unique UUID for this application
-    private static final UUID MY_UUID = UUID.fromString("0001101-0000-1000-8000-00805F9B34FB");
+    // Constants that indicate the current connection state
+    public static final int STATE_NONE = 0; // we're doing nothing
+    public static final int STATE_LISTEN = 1; // now listening for incoming
+    // connections
+    public static final int STATE_CONNECTING = 2; // now initiating an outgoing
 
     // INSECURE "8ce255c0-200a-11e0-ac64-0800200c9a66"
     // SECURE "fa87c0d0-afac-11de-8a39-0800200c9a66"
     // SPP "0001101-0000-1000-8000-00805F9B34FB"
-
+    // connection
+    public static final int STATE_CONNECTED = 3; // now connected to a remote
+    // Debugging
+    private static final String TAG = "BluetoothService";
+    // Name for the SDP record when creating server socket
+    private static final String NAME = "MainActivity";
+    // Unique UUID for this application
+    private static final UUID MY_UUID = UUID.fromString("0001101-0000-1000-8000-00805F9B34FB");
     // Member fields
     private final BluetoothAdapter mAdapter;
     private final Handler mHandler;
@@ -43,14 +47,6 @@ public class BluetoothService {
     private ConnectThread mConnectThread;
     private ConnectedThread mConnectedThread;
     private int mState;
-
-    // Constants that indicate the current connection state
-    public static final int STATE_NONE = 0; // we're doing nothing
-    public static final int STATE_LISTEN = 1; // now listening for incoming
-    // connections
-    public static final int STATE_CONNECTING = 2; // now initiating an outgoing
-    // connection
-    public static final int STATE_CONNECTED = 3; // now connected to a remote
     // device
 
     public BluetoothService(Handler handler) {
@@ -59,14 +55,14 @@ public class BluetoothService {
         mHandler = handler;
     }
 
+    public synchronized int getState() {
+        return mState;
+    }
+
     private synchronized void setState(int state) {
         Log.d(TAG, "setState() " + mState + " -> " + state);
         mState = state;
         mHandler.obtainMessage(MainActivity.MESSAGE_BLUETOOTH_STATE_CHANGE, state, -1).sendToTarget();
-    }
-
-    public synchronized int getState() {
-        return mState;
     }
 
     public synchronized void start() {
@@ -121,8 +117,8 @@ public class BluetoothService {
         setState(STATE_CONNECTING);
     }
 
-    public synchronized void connected(BluetoothSocket socket,
-                                       BluetoothDevice device, final String socketType) {
+    private synchronized void connected(BluetoothSocket socket,
+                                        BluetoothDevice device, final String socketType) {
         Log.d(TAG, "connected, Socket Type:" + socketType);
 
         // Cancel the thread that completed the connection
@@ -379,9 +375,9 @@ public class BluetoothService {
      * incoming and outgoing transmissions.
      */
     private class ConnectedThread extends Thread {
+        final OutputStream mmOutStream;
         private final BluetoothSocket mmSocket;
         private final InputStream mmInStream;
-        final OutputStream mmOutStream;
 
         public ConnectedThread(BluetoothSocket socket, String socketType) {
             Log.d(TAG, "create ConnectedThread: " + socketType);

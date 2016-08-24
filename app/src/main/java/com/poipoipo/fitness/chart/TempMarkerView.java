@@ -13,8 +13,8 @@ public class TempMarkerView extends MarkerView {
     private Chart chart;
     private TextView textView;
 
-    public TempMarkerView(Context context, int layoutRes, Chart chart){
-        super(context, layoutRes);
+    public TempMarkerView(Context context, Chart chart) {
+        super(context, R.layout.marker_view_temp);
         textView = (TextView) findViewById(R.id.marker_view_y_value);
         this.chart = chart;
     }

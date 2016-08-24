@@ -36,6 +36,7 @@ import com.poipoipo.fitness.data.Para;
 import com.poipoipo.fitness.data.ParaGenerator;
 import com.poipoipo.fitness.data.Timestamp;
 import com.poipoipo.fitness.database.DatabaseHelper;
+import com.poipoipo.fitness.httpConnect.HttpUtil;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -44,23 +45,24 @@ import java.util.TimeZone;
 
 public class MainActivity extends AppCompatActivity
         implements OnClickListener, OnMapReadyCallback, SwipeRefreshLayout.OnRefreshListener {
-    private static final String TAG = "MainActivity";
-
-    public static final int MESSAGE_BLUETOOTH_STATE_CHANGE = 1,
-            MESSAGE_READ = 2, MESSAGE_DEVICE_NAME = 3, MESSAGE_TOAST = 4,
-            START_REFRESH = 5, REFRESH_DONE = 6;
-    private static final int REQUEST_CONNECT_DEVICE = 2, REQUEST_ENABLE_BT = 3;
+    public static final int MESSAGE_BLUETOOTH_STATE_CHANGE = 1;
+    public static final int MESSAGE_READ = 2;
+    public static final int MESSAGE_DEVICE_NAME = 3;
+    public static final int MESSAGE_TOAST = 4;
+    public static final int REFRESH_SPO2 = 7;
+    public static final int REFRESH_BPM = 8;
+    public static final int REFRESH_MAP = 9;
     public static final String DEVICE_NAME = "device_name", TOAST = "toast";
-
-    Intent serverIntent;
-    private FloatingActionButton fab;
-    Button editDate;
-    TextView connectState;
-    private String mConnectedDeviceName = null;
-    private Timestamp timestamp;
-
+    private static final String TAG = "MainActivity";
+    private static final int START_REFRESH = 5;
+    private static final int REFRESH_DONE = 6;
+    private static final int REQUEST_CONNECT_DEVICE = 2, REQUEST_ENABLE_BT = 3;
     public Calendar calendar;
-
+    private Intent serverIntent;
+    private FloatingActionButton fab;
+    private Button editDate;
+    private TextView connectState;
+    private String mConnectedDeviceName = null;
     // Array adapter for the conversation thread
     // private ArrayAdapter<String> mConversationArrayAdapter;
     // String buffer for outgoing messages
@@ -70,50 +72,10 @@ public class MainActivity extends AppCompatActivity
     private BluetoothService mChatService = null;
     private DatabaseHelper databaseHelper;
     private SwipeRefreshLayout swipeView;
-    List<LineChart> lineCharts = new ArrayList<>();
-    LineChartUtil lineChartUtil;
-    MapUtil mapUtil;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        if (mBluetoothAdapter == null) {
-            Toast.makeText(this, "Bluetooth is not available", Toast.LENGTH_LONG).show();
-            finish();
-        }
-        super.onCreate(savedInstanceState);
-
-        /*Stetho Debug*/
-        Stetho.initializeWithDefaults(this);
-        Log.d(TAG, "onCreate: Stetho Running");
-
-        setContentView(R.layout.main_activity);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(this);
-        editDate = (Button) findViewById(R.id.edit_date);
-        editDate.setOnClickListener(this);
-        calendar = Calendar.getInstance(TimeZone.getDefault());
-        timestamp = new Timestamp(calendar);
-        ImageButton prevDate = (ImageButton) findViewById(R.id.prev_date);
-        prevDate.setOnClickListener(this);
-        ImageButton nextDate = (ImageButton) findViewById(R.id.next_date);
-        nextDate.setOnClickListener(this);
-
-        lineChartUtil = new LineChartUtil(this, mHandler);
-        lineCharts = lineChartUtil.getInstances();
-
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
-
-        databaseHelper = new DatabaseHelper(this);
-        updateDate();
-        swipeView = (SwipeRefreshLayout) findViewById(R.id.swipe);
-        swipeView.setOnRefreshListener(this);
-    }
-
+    private HttpUtil httpUtil;
+    private List<LineChart> lineCharts = new ArrayList<>();
+    private LineChartUtil lineChartUtil;
+    private MapUtil mapUtil;
     // The Handler that gets information back from the BluetoothService, the HttpCallback and Database operation
     private final Handler mHandler = new Handler() {
 
@@ -138,20 +100,77 @@ public class MainActivity extends AppCompatActivity
                     Toast.makeText(getApplicationContext(), msg.getData().getString(TOAST), Toast.LENGTH_SHORT).show();
                     break;
                 case START_REFRESH:
-                    lineChartUtil.refresh(Para.TYPE_BPM, databaseHelper.queryPara(Para.TYPE_BPM, timestamp.getDayTimestamp(calendar)));
-                    lineChartUtil.refresh(Para.TYPE_SPO2, databaseHelper.queryPara(Para.TYPE_SPO2, timestamp.getDayTimestamp(calendar)));
-                    lineChartUtil.refresh(Para.TYPE_TEMP, databaseHelper.queryPara(Para.TYPE_TEMP, timestamp.getDayTimestamp(calendar)));
-                    mapUtil.updateMap(databaseHelper.queryLocation(timestamp.getDayTimestamp(calendar)));
+                    lineChartUtil.refresh(Para.TYPE_BPM, databaseHelper.queryPara(Para.TYPE_BPM, Timestamp.getDayTimestampCalendar(calendar)));
+                    lineChartUtil.refresh(Para.TYPE_SPO2, databaseHelper.queryPara(Para.TYPE_SPO2, Timestamp.getDayTimestampCalendar(calendar)));
+                    mapUtil.updateMap(databaseHelper.queryLocation(Timestamp.getDayTimestampCalendar(calendar)));
                     mHandler.obtainMessage(MainActivity.REFRESH_DONE).sendToTarget();
                     break;
+                case REFRESH_SPO2:
+                    swipeView.setRefreshing(false);
+                    lineChartUtil.refresh(Para.TYPE_SPO2, httpUtil.getSpo2s());
+                    lineCharts.get(Para.TYPE_SPO2).invalidate();
+                    databaseHelper.insertPara(httpUtil.getSpo2s());
+                    break;
+//                    mapUtil.updateMap(httpUtil.getLocations());
                 case REFRESH_DONE:
                     swipeView.setRefreshing(false);
                     lineCharts.get(Para.TYPE_BPM).invalidate();
-                    lineCharts.get(Para.TYPE_TEMP).invalidate();
                     lineCharts.get(Para.TYPE_SPO2).invalidate();
+                    break;
+                case REFRESH_BPM:
+                    swipeView.setRefreshing(false);
+                    lineChartUtil.refresh(Para.TYPE_BPM, httpUtil.getBpm());
+                    lineCharts.get(Para.TYPE_BPM).invalidate();
+                    databaseHelper.insertPara(httpUtil.getBpm());
+                    break;
+                case REFRESH_MAP:
+                    swipeView.setRefreshing(false);
+                    mapUtil.updateMap(httpUtil.getLocations());
+                    databaseHelper.insertLocation(httpUtil.getLocations());
             }
         }
     };
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        if (mBluetoothAdapter == null) {
+            Toast.makeText(this, "Bluetooth is not available", Toast.LENGTH_LONG).show();
+            finish();
+        }
+        super.onCreate(savedInstanceState);
+
+        /*Stetho Debug*/
+        Stetho.initializeWithDefaults(this);
+        Log.d(TAG, "onCreate: Stetho Running");
+
+        setContentView(R.layout.main_activity);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(this);
+        editDate = (Button) findViewById(R.id.edit_date);
+        editDate.setOnClickListener(this);
+        calendar = Calendar.getInstance(TimeZone.getDefault());
+        ImageButton prevDate = (ImageButton) findViewById(R.id.prev_date);
+        prevDate.setOnClickListener(this);
+        ImageButton nextDate = (ImageButton) findViewById(R.id.next_date);
+        nextDate.setOnClickListener(this);
+
+        lineChartUtil = new LineChartUtil(this, mHandler);
+        lineCharts = lineChartUtil.getInstances();
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+
+        databaseHelper = new DatabaseHelper(this);
+        updateDate();
+        swipeView = (SwipeRefreshLayout) findViewById(R.id.swipe);
+        swipeView.setOnRefreshListener(this);
+
+        httpUtil = new HttpUtil(mHandler);
+    }
 
     @Override
     public void onClick(View view) {
@@ -214,26 +233,10 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-//    private void connectServer() {
-//        HttpUtil.sendHttpRequest("http://poipoipo.com/data/dummy1.json", new HttpCallbackListener() {
-//            @Override
-//            public void onFinish(String response) {
-//                List<Para> list = new Gson().fromJson(response, new TypeToken<List<Para>>() {
-//                }.getType());
-//                databaseHelper.insertPara(list);
-//                mHandler.obtainMessage(MainActivity.REFRESH_DONE).sendToTarget();
-//            }
-//
-//            @Override
-//            public void onError(Exception e) {
-//                e.printStackTrace();
-//            }
-//        });
-//    }
-
     @Override
     public void onRefresh() {
-
+        httpUtil.requestGps(calendar);
+        httpUtil.requestSpo2(calendar);
     }
 
     private void bluetoothStateChange(int state) {

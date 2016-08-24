@@ -14,7 +14,7 @@ import com.poipoipo.fitness.R;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    GoogleMap mMap;
+    private GoogleMap mMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         MarkerOptions marker = new MarkerOptions().position(new LatLng(37.45, -122.0)).title("Hello Maps");
 
 // Changing marker icon
-        marker.icon(BitmapDescriptorFactory.fromResource(R.mipmap.point));
+        marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.point));
 
 // adding marker
         googleMap.addMarker(marker);

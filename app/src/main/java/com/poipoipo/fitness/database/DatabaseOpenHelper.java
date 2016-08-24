@@ -5,34 +5,23 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class DatabaseOpenHelper extends SQLiteOpenHelper {
+class DatabaseOpenHelper extends SQLiteOpenHelper {
 
-    Context mContext;
-
-    public static final String CREATE_BPM = "create table Bpm ("
-            + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + "time INTEGER, "
+    private static final String CREATE_BPM = "create table Bpm ("
+            + "time INTEGER PRIMARY KEY, "
             + "data INTEGER)";
-
-    public static final String CREATE_SPO2 = "create table Spo2 ("
-            + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + "time INTEGER, "
+    private static final String CREATE_SPO2 = "create table Spo2 ("
+            + "time INTEGER PRIMARY KEY, "
             + "data INTEGER)";
-
-    public static final String CREATE_TEMP = "create table Temp ("
-            + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + "time INTEGER, "
-            + "data INTEGER)";
-
-    public static final String CREATE_LOCATION = "create table Location ("
-            + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + "time INTEGER, "
+    private static final String CREATE_LOCATION = "create table Location ("
+            + "time INTEGER PRIMARY KEY, "
             + "latitude REAL, "
             + "longitude REAL)";
+    private Context mContext;
 
 
-    public DatabaseOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public DatabaseOpenHelper(Context context) {
+        super(context, DatabaseHelper.DATABASE_NAME, null, DatabaseHelper.VERSION);
         mContext = context;
     }
 
@@ -40,7 +29,6 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_BPM);
         db.execSQL(CREATE_SPO2);
-        db.execSQL(CREATE_TEMP);
         db.execSQL(CREATE_LOCATION);
         Log.d("DEBUGGING", "Database Create Succeeded");
     }

@@ -1,20 +1,30 @@
 package com.poipoipo.fitness.data;
 
 public class Para {
+    public static final int TYPE_BPM = 0;
+    public static final int TYPE_SPO2 = 1;
     private int time;
     private int data;
     private int type;
 
-    public static final int TYPE_BPM = 0;
-    public static final int TYPE_TEMP = 1;
-    public static final int TYPE_SPO2 = 2;
+    public Para(int type) {
+        this.type = type;
+    }
 
     public int getTime() {
         return time;
     }
 
+    public void setTime(int time) {
+        this.time = time;
+    }
+
     public int getData() {
         return data;
+    }
+
+    public void setData(int data) {
+        this.data = data;
     }
 
     public int getType() {
@@ -23,13 +33,5 @@ public class Para {
 
     public void setType(int type) {
         this.type = type;
-    }
-
-    public void setTime(int time) {
-        this.time = time;
-    }
-
-    public void setData(int data) {
-        this.data = data;
     }
 }

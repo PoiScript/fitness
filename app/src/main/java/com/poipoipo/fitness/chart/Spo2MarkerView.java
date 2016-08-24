@@ -13,8 +13,8 @@ public class Spo2MarkerView extends MarkerView {
     private Chart chart;
     private TextView textView;
 
-    public Spo2MarkerView(Context context, int layoutRes, Chart chart){
-        super(context, layoutRes);
+    public Spo2MarkerView(Context context, Chart chart) {
+        super(context, R.layout.marker_view_spo2);
         textView = (TextView) findViewById(R.id.marker_view_y_value);
         this.chart = chart;
     }

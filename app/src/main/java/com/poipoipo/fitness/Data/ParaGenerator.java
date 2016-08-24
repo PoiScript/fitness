@@ -22,10 +22,9 @@ public class ParaGenerator {
     public List<Para> generate(int length){
         list.clear();
         for (int i = 0; i < length; i++){
-            Para para = new Para();
+            Para para = new Para(random.nextInt(3));
             para.setData(random.nextInt(DATA_MAX - DATA_MIN + 1) + DATA_MIN);
             para.setTime(random.nextInt(TIME_MAX - TIME_MIN + 1) + TIME_MIN);
-            para.setType(random.nextInt(3));
             list.add(para);
         }
         return list;
