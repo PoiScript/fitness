@@ -19,6 +19,9 @@
     <string name="action_clear_para">Clear Para</string>
     <string name="action_clear_location">Clear Location</string>
     <string name="action_clear">Clear Database</string>
+    <string name="action_error">GPS Error Setter</string>
+    <string name="input_lat_error">Latitude Error</string>
+    <string name="input_lng_error">Longitude Error</string>
     <string name="title_activity_maps">Map</string>
 
     <string name="prev_date">Prev Date</string>

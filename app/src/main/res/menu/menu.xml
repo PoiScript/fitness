@@ -28,4 +28,9 @@
         android:orderInCategory="100"
         android:title="@string/action_clear"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_error"
+        android:orderInCategory="101"
+        android:title="@string/action_error"
+        app:showAsAction="never" />
 </menu>

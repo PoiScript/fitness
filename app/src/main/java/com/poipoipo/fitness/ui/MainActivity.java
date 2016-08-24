@@ -7,6 +7,7 @@ import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.stetho.Stetho;
 import com.github.mikephil.charting.charts.LineChart;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -23,6 +25,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.poipoipo.fitness.DatePickerFragment;
 import com.poipoipo.fitness.R;
+import com.poipoipo.fitness.chart.ErrorSetterDialog;
 import com.poipoipo.fitness.chart.LineChartUtil;
 import com.poipoipo.fitness.data.LocationGenerator;
 import com.poipoipo.fitness.data.Para;
@@ -39,7 +42,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity
-        implements OnClickListener, OnMapReadyCallback, SwipeRefreshLayout.OnRefreshListener {
+        implements OnClickListener, OnMapReadyCallback, SwipeRefreshLayout.OnRefreshListener, ErrorSetterDialog.OnPositiveClickListener {
     public static final int REFRESH_SPO2 = 7;
     public static final int REFRESH_BPM = 8;
     public static final int REFRESH_MAP = 9;
@@ -102,13 +105,17 @@ public class MainActivity extends AppCompatActivity
         }
     };
 
+    public DatabaseHelper getDatabaseHelper() {
+        return databaseHelper;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
 //        /*Stetho Debug*/
-//        Stetho.initializeWithDefaults(this);
-//        Log.d(TAG, "onCreate: Stetho Running");
+        Stetho.initializeWithDefaults(this);
+        Log.d(TAG, "onCreate: Stetho Running");
 
         setContentView(R.layout.main_activity);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -147,8 +154,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void updateRealTimeLatLng(LatLng latLng) {
-        realTimeLngLat.setText(new StringBuilder().append("经度：").append(latLng.latitude).append("维度：").append(latLng.longitude));
-        httpUtil.parseLatLng(latLng);
+        realTimeLngLat.setText(new StringBuilder().append("经度：").append(latLng.latitude + databaseHelper.queryLatLngError().latitude).append("维度：").append(latLng.longitude + databaseHelper.queryLatLngError().latitude));
+        httpUtil.parseLatLng(new LatLng(latLng.latitude + databaseHelper.queryLatLngError().latitude, latLng.longitude + databaseHelper.queryLatLngError().longitude));
     }
 
     private void updateRealTimeLocation(String location) {
@@ -171,6 +178,12 @@ public class MainActivity extends AppCompatActivity
                 updateDate();
                 break;
         }
+    }
+
+    @Override
+    public void onPositiveClick(double lat_error, double lng_error) {
+        Log.d(TAG, "onPositiveClick: lat_error = " + lat_error + " lng_error = " + lng_error);
+        databaseHelper.updateLatLngError(new LatLng(lat_error, lng_error));
     }
 
     public void updateDate() {
@@ -207,6 +220,10 @@ public class MainActivity extends AppCompatActivity
             case R.id.action_clear:
                 databaseHelper.deleteAll();
                 Toast.makeText(getApplicationContext(), "Database Cleared", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_error:
+                ErrorSetterDialog fragment = ErrorSetterDialog.newInstance(databaseHelper.queryLatLngError());
+                fragment.show(getFragmentManager(), "errorSetter");
                 break;
         }
         return super.onOptionsItemSelected(item);

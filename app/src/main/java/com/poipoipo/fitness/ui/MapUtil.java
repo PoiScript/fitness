@@ -20,6 +20,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.poipoipo.fitness.R;
 import com.poipoipo.fitness.data.Location;
+import com.poipoipo.fitness.database.DatabaseHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -32,6 +33,7 @@ class MapUtil
     private static final SimpleDateFormat format = new SimpleDateFormat("HH:mm", Locale.getDefault());
     private final GoogleMap map;
     private final Context context;
+    private DatabaseHelper helper;
     private BitmapDescriptor point = BitmapDescriptorFactory.fromResource(R.drawable.pointg);
 
     public MapUtil(GoogleMap map, Context context) {
@@ -43,12 +45,17 @@ class MapUtil
         assert drawable != null;
         Bitmap bitmap = Bitmap.createScaledBitmap(drawable.getBitmap(), 10, 10, false);
         point = BitmapDescriptorFactory.fromBitmap(bitmap);
+        helper = ((MainActivity) context).getDatabaseHelper();
     }
 
     public void updateMap(List<Location> locations) {
         map.clear();
         if (locations.size() > 0) {
             PolylineOptions options = new PolylineOptions();
+            for (Location location : locations) {
+                location.setLongitude(location.getLongitude() + helper.queryLatLngError().longitude);
+                location.setLatitude(location.getLatitude() + helper.queryLatLngError().latitude);
+            }
             for (Location location : locations) {
                 Log.d(TAG, "updateMap:  lng = " + location.getLongitude() + " lat = " + location.getLatitude());
                 map.addMarker(new MarkerOptions()
